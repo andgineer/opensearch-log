@@ -2,10 +2,10 @@
 [![Coverage](https://raw.githubusercontent.com/andgineer/opensearch-log/python-coverage-comment-action-data/badge.svg)](https://htmlpreview.github.io/?https://github.com/andgineer/opensearch-log/blob/python-coverage-comment-action-data/htmlcov/index.html)
 # opensearch-log
 
-opensearch-log is a Python logging handler for direct and efficient log transmission to 
-OpenSearch. 
+opensearch-log is a Python logging handler for direct and efficient log transmission to
+OpenSearch.
 
-It integrates with Python's standard logging framework to send logs to an OpenSearch 
+It integrates with Python's standard logging framework to send logs to an OpenSearch
 cluster, offering a blend of efficiency, reliability, and ease of use.
 
 ## Key Features
@@ -16,8 +16,8 @@ cluster, offering a blend of efficiency, reliability, and ease of use.
 - **Flexible Configuration**: Adaptable to various logging and OpenSearch setups.
 - **Asynchronous Support**: Handles log transmission asynchronously for enhanced performance.
 
-Ideal for applications ranging from small-scale projects to large enterprise systems, 
-OpenSearchLogHandler provides a robust and straightforward solution for managing logs 
+Ideal for applications ranging from small-scale projects to large enterprise systems,
+OpenSearchLogHandler provides a robust and straightforward solution for managing logs
 with OpenSearch.
 
 # Documentation
