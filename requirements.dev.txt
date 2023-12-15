@@ -10,6 +10,8 @@ babel==2.14.0
     # via mkdocs-material
 bracex==2.4
     # via wcmatch
+build==1.0.3
+    # via pip-tools
 certifi==2023.11.17
     # via requests
 cfgv==3.4.0
@@ -19,10 +21,11 @@ charset-normalizer==3.3.2
 click==8.1.7
     # via
     #   mkdocs
+    #   pip-tools
     #   typer
 colorama==0.4.6
     # via mkdocs-material
-coverage[toml]==7.3.2
+coverage[toml]==7.3.3
     # via
     #   coverage
     #   pytest-cov
@@ -85,6 +88,7 @@ nodeenv==1.8.0
     # via pre-commit
 packaging==23.2
     # via
+    #   build
     #   hatchling
     #   mkdocs
     #   pytest
@@ -94,6 +98,8 @@ pathspec==0.12.1
     # via
     #   hatchling
     #   mkdocs
+pip-tools==7.3.0
+    # via -r requirements.dev.in
 platformdirs==4.1.0
     # via
     #   mkdocs
@@ -115,6 +121,8 @@ pymdown-extensions==10.5
     # via
     #   -r requirements.dev.in
     #   mkdocs-material
+pyproject-hooks==1.0.0
+    # via build
 pytest==7.4.3
     # via
     #   -r requirements.dev.in
@@ -159,6 +167,9 @@ watchdog==3.0.0
     # via mkdocs
 wcmatch==8.5
     # via mkdocs-awesome-pages-plugin
+wheel==0.42.0
+    # via pip-tools
 
 # The following packages are considered to be unsafe in a requirements file:
+# pip
 # setuptools
