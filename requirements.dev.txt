@@ -25,14 +25,19 @@ click==8.1.7
     #   typer
 colorama==0.4.6
     # via mkdocs-material
-coverage[toml]==7.3.3
+coverage[toml]==6.5.0
     # via
     #   coverage
+    #   coveralls
     #   pytest-cov
+coveralls==3.3.1
+    # via -r requirements.dev.in
 dill==0.3.7
     # via pylint
 distlib==0.3.8
     # via virtualenv
+docopt==0.6.2
+    # via coveralls
 editables==0.5
     # via hatchling
 filelock==3.13.1
@@ -142,7 +147,9 @@ pyyaml-env-tag==0.1
 regex==2023.10.3
     # via mkdocs-material
 requests==2.31.0
-    # via mkdocs-material
+    # via
+    #   coveralls
+    #   mkdocs-material
 six==1.16.0
     # via python-dateutil
 snowballstemmer==2.2.0
