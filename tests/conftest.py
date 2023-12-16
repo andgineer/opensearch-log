@@ -6,12 +6,12 @@ from contextlib import contextmanager
 from typing import Optional, Any, Dict, List, Tuple
 from unittest.mock import patch, MagicMock
 
-from opensearch_log.json_formatter import _log_values
-from opensearch_log import json_formatter
+from opensearch_log.json_log import _log_values
+from opensearch_log import json_log
 
-from opensearch_log import get_json_logger
-from opensearch_log.base_handler import BaseStructuredHandler
-from opensearch_log.stdout_handler import StructuredStdoutHandler
+from opensearch_log.stdout_handler import get_logger
+from opensearch_log.base_handler import BaseHandler
+from opensearch_log.stdout_handler import StdoutHandler
 
 import pytest
 
@@ -22,19 +22,19 @@ import opensearchpy.exceptions
 
 @pytest.fixture(scope="function")
 def log():
-    return get_json_logger(component="TestComponent")
+    return get_logger(application="-mock-application-")
 
 
 @contextmanager
 def capture_logs(log):
-    """Fixture to temporarily capture output of send_message in log handlers."""
+    """Fixture to capture output of send_message in log handlers."""
     captured_messages = io.StringIO()
 
     def new_send_message(self, message: Optional[str], record: logging.LogRecord):
-        """Temporary send_message to capture messages."""
+        """Send message to captured_messages."""
         captured_messages.write(message + "\n")  # Added newline for easier parsing later
 
-    handlers_to_patch = [handler for handler in log.handlers if isinstance(handler, StructuredStdoutHandler)]
+    handlers_to_patch = [handler for handler in log.handlers if isinstance(handler, StdoutHandler)]
 
     original_methods = {}  # Store original methods to restore them later
     for handler in handlers_to_patch:
@@ -51,7 +51,7 @@ def capture_logs(log):
 
 @pytest.fixture(scope="function")
 def cloudwatch():
-    json_formatter._logger = None
+    json_log._logger = None
 
     with patch.dict(os.environ, {
         'AWS_DEFAULT_REGION': 'us-west-2',
@@ -60,14 +60,14 @@ def cloudwatch():
     }):
         yield
 
-    if json_formatter._logger is not None:
+    if json_log._logger is not None:
         handlers_to_remove = [
-            handler for handler in json_formatter._logger.handlers
-            if isinstance(handler, BaseStructuredHandler)
+            handler for handler in json_log._logger.handlers
+            if isinstance(handler, BaseHandler)
         ]
         for handler in handlers_to_remove:
-            json_formatter._logger.removeHandler(handler)
-        json_formatter._logger = None
+            json_log._logger.removeHandler(handler)
+        json_log._logger = None
 
 
 class MockLogRecord(logging.LogRecord):
@@ -126,7 +126,7 @@ class MockOpenSearchClient:
 
 @pytest.fixture(scope="function")
 def opensearch_handler():
-    json_formatter._logger = None
+    json_log._logger = None
 
     with patch(
             'opensearch_log.opensearch_handler.StructuredOpensearchHandler._get_opensearch_client', return_value=MockOpenSearchClient()):
@@ -134,11 +134,11 @@ def opensearch_handler():
         yield handler
         handler.close()
 
-    if json_formatter._logger is not None:
+    if json_log._logger is not None:
         handlers_to_remove = [
-            handler for handler in json_formatter._logger.handlers
-            if isinstance(handler, BaseStructuredHandler)
+            handler for handler in json_log._logger.handlers
+            if isinstance(handler, BaseHandler)
         ]
         for handler in handlers_to_remove:
-            json_formatter._logger.removeHandler(handler)
-        json_formatter._logger = None
+            json_log._logger.removeHandler(handler)
+        json_log._logger = None

@@ -4,7 +4,7 @@ from typing import Optional
 
 
 # Common Parent
-class BaseStructuredHandler(logging.Handler):
+class BaseHandler(logging.Handler):
     """Abstract base handler for structured logging."""
 
     def emit(self, record: logging.LogRecord) -> None:

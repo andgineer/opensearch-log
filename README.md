@@ -8,6 +8,9 @@ OpenSearch.
 It integrates with Python's standard logging framework to send logs to an OpenSearch
 cluster, offering a blend of efficiency, reliability, and ease of use.
 
+Also includes a specialized logging formatter that enables stdout logs to be
+formatted  in JSON.
+
 ## Key Features
 
 - **Efficient Logging**: Designed for minimal impact on application performance.

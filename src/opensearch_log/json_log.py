@@ -1,4 +1,4 @@
-"""JSON logging utilities."""
+"""JSON logging."""
 import logging
 import sys
 from contextlib import contextmanager
@@ -7,7 +7,7 @@ from typing import Any, Dict, List, Optional
 
 from pythonjsonlogger import jsonlogger
 
-from opensearch_log.base_handler import BaseStructuredHandler
+from opensearch_log.base_handler import BaseHandler
 
 _logger: Optional[logging.Logger] = None
 _logger_params: Optional[Dict[str, Optional[str]]] = None
@@ -28,7 +28,7 @@ def set_record_factory() -> None:
 
 
 def create_logger(
-    log_handler_instance: BaseStructuredHandler, level: int, clear_handlers: bool = False
+    log_handler_instance: BaseHandler, level: int, clear_handlers: bool = False
 ) -> logging.Logger:
     """Create a logger that stream logs in JSON format with additional fields."""
     result = logging.getLogger()
@@ -52,12 +52,8 @@ def get_json_formatter() -> jsonlogger.JsonFormatter:
 def replace_logger_fields(fields_to_log: Dict[str, Any]) -> None:
     """Update logger with new fields to log."""
     global _logger_params  # pylint: disable=global-statement
-    if _logger_params == fields_to_log or (
-        fields_to_log["component"] is None and fields_to_log.get("branch") is None
-    ):
+    if _logger_params == fields_to_log or (fields_to_log["application"] is None is None):
         return
-    if fields_to_log["component"] is None:
-        raise ValueError("To create a logger log field `component` should be specified.")
     assert (
         _logger_params is not None
     ), "The method should be called only if the logger have been created before"
@@ -86,7 +82,7 @@ def remove_log_fields(*fields: str) -> None:
 
 
 @contextmanager
-def LogFields(**values: Any) -> Any:  # pylint: disable=invalid-name
+def Fields(**values: Any) -> Any:  # pylint: disable=invalid-name
     """Include fields `values` to all log records."""
     # todo: implement as class so the name will be in correct case # pylint: disable=fixme
     added_fields = add_log_fields(**values)
@@ -113,19 +109,19 @@ def log_fields(func: Optional[Any] = None, **values: Any) -> Any:
     return decorate(func) if callable(func) else decorate
 
 
-def get_json_logger(
-    application: str = sys.argv[0],
+def get_logger(
+    application: Optional[str] = sys.argv[0],
     *,
-    log_handler: BaseStructuredHandler,
+    log_handler: BaseHandler,
     level: int = logging.INFO,
     clear_handlers: bool = False,
     **values: Any,
 ) -> logging.Logger:
-    """Create a logger that stream logs in JSON format with additional fields."""
+    """Get a JSON logger."""
     global _logger, _logger_params  # pylint: disable=global-statement
 
     if _logger is not None:
-        replace_logger_fields({"component": application, **values})
+        replace_logger_fields({"application": application, **values})
         return _logger
 
     _logger_params = {"application": application, **values}

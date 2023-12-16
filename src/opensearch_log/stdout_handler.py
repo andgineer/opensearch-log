@@ -1,14 +1,14 @@
-"""JSON logging for stdout."""
+"""JSON logging to stdout."""
 import logging
 from typing import Any, Optional
 
-from opensearch_log import json_formatter
-from opensearch_log.base_handler import BaseStructuredHandler
-from opensearch_log.json_formatter import get_json_formatter
+from opensearch_log import json_log
+from opensearch_log.base_handler import BaseHandler
+from opensearch_log.json_log import get_json_formatter
 
 
-class StructuredStdoutHandler(BaseStructuredHandler):
-    """Handler that sends log records to stdout."""
+class StdoutHandler(BaseHandler):
+    """Handler to send json log to stdout."""
 
     def __init__(self) -> None:
         """Initialize the handler."""
@@ -19,27 +19,27 @@ class StructuredStdoutHandler(BaseStructuredHandler):
         print(message)
 
 
-def get_json_logger(
-    component: Optional[str] = None,
+def get_logger(
+    application: Optional[str] = None,
     branch: Optional[str] = None,
     *,
     level: int = logging.INFO,
     clear_handlers: bool = False,
     **values: Any,
 ) -> logging.Logger:
-    """Get a logger that streams logs to stdout in JSON format with additional fields."""
-    return json_formatter.get_json_logger(
-        component=component,
+    """Get a logger to send JSON logs to stdout."""
+    return json_log.get_logger(
+        application=application,
         branch=branch,
         level=level,
-        log_handler=StructuredStdoutHandler(),
+        log_handler=StdoutHandler(),
         clear_handlers=clear_handlers,
         **values,
     )
 
 
-def append_stdout_json_handler(logger: logging.Logger) -> None:
-    """Append a stdout handler to the logger."""
-    stdout_handler = StructuredStdoutHandler()
+def add_stdout_json_handler(logger: logging.Logger) -> None:
+    """Add a stdout handler to the logger."""
+    stdout_handler = StdoutHandler()
     stdout_handler.setFormatter(get_json_formatter())
     logger.addHandler(stdout_handler)

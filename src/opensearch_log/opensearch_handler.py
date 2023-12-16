@@ -10,10 +10,10 @@ from typing import Any, Dict, List, Optional, Union
 import boto3
 from opensearchpy import AWSV4SignerAuth, OpenSearch, RequestsHttpConnection, helpers
 
-from opensearch_log import json_formatter
-from opensearch_log.base_handler import BaseStructuredHandler
+from opensearch_log import json_log
+from opensearch_log.base_handler import BaseHandler
 from opensearch_log.opensearch_serializer import OpenSearchSerializer
-from opensearch_log.stdout_handler import append_stdout_json_handler
+from opensearch_log.stdout_handler import add_stdout_json_handler
 
 
 class IndexRotation(Enum):
@@ -40,9 +40,7 @@ IGNORED_LOG_RECORD_FIELDS = [
 ]
 
 
-class StructuredOpensearchHandler(
-    BaseStructuredHandler
-):  # pylint: disable=too-many-instance-attributes
+class StructuredOpensearchHandler(BaseHandler):  # pylint: disable=too-many-instance-attributes
     """Handler to send log records to AWS OpenSearch."""
 
     DAILY = IndexRotation.DAILY
@@ -106,7 +104,7 @@ class StructuredOpensearchHandler(
         return self._get_opensearch_client().ping()  # type: ignore
 
     def flush(self) -> None:
-        """Flush the buffer into OpenSearch."""
+        """Flush the buffer."""
         if hasattr(self, "_timer") and self._timer is not None and self._timer.is_alive():
             self._timer.cancel()
         self._timer = None
@@ -146,7 +144,7 @@ class StructuredOpensearchHandler(
                             )
 
     def close(self) -> None:
-        """Flush the buffer and release any outstanding resource."""
+        """Flush the buffer on close."""
         self.flush()
 
     def _get_opensearch_client(self) -> Optional[OpenSearch]:
@@ -190,6 +188,7 @@ class StructuredOpensearchHandler(
 
     def _convert_log_record_to_opensearch_doc(self, record: logging.LogRecord) -> Dict[str, Any]:
         """Convert logging.LogRecord to OpenSearch doc."""
+        print(f"record: {record.msg}, {record.__dict__}")
         log_record_dict = record.__dict__.copy()
         doc = {
             "@timestamp": self._get_opensearch_datetime_str(
@@ -214,13 +213,12 @@ class StructuredOpensearchHandler(
 
     @staticmethod
     def _get_opensearch_datetime_str(timestamp: float) -> str:
-        """Return OpenSearch utc formatted time for an epoch timestamp."""
         datetime_utc = datetime.utcfromtimestamp(timestamp)
         fmt = "%Y-%m-%dT%H:%M:%S"
         return f"{datetime_utc.strftime(fmt)}.{int(datetime_utc.microsecond / 1000):03d}Z"
 
 
-def get_json_logger(  # pylint: disable=too-many-arguments
+def get_logger(  # pylint: disable=too-many-arguments
     *args: Any,
     opensearch_host: str = DEFAULT_OPENSEARCH_HOST,
     index_name: str = DEFAULT_INDEX_NAME,
@@ -228,12 +226,12 @@ def get_json_logger(  # pylint: disable=too-many-arguments
     echo_stdout: bool = False,
     buffer_size: int = BUFFER_SIZE,
     flush_seconds: float = FLUSH_SECONDS,
-    log_handler: Optional[BaseStructuredHandler] = None,
+    log_handler: Optional[BaseHandler] = None,
     **kwargs: Any,
 ) -> logging.Logger:
     """Create a logger that stream logs to OpenSearch."""
     assert log_handler is None, "log_handler should not be specified"
-    result = json_formatter.get_json_logger(
+    result = json_log.get_logger(
         *args,
         log_handler=StructuredOpensearchHandler(
             opensearch_host=opensearch_host,
@@ -245,10 +243,16 @@ def get_json_logger(  # pylint: disable=too-many-arguments
         **kwargs,
     )
     if echo_stdout:
-        append_stdout_json_handler(result)
+        add_stdout_json_handler(result)
+    logging.getLogger("opensearch").setLevel(logging.WARNING)  # suppress HTTP tracing
     return result
 
 
 if __name__ == "__main__":
-    logger = get_json_logger(echo_stdout=True)
-    logger.info("Hello, world!")
+    from opensearch_log import Fields
+
+    # from stdout_handler import get_logger
+
+    logger = get_logger(echo_stdout=True)
+    with Fields(my_log_field="From Python"):
+        logger.info("Hello World")

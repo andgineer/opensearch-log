@@ -9,9 +9,9 @@ from opensearch_log.opensearch_serializer import OpenSearchSerializer
 from unittest.mock import MagicMock, patch
 
 from opensearch_log.opensearch_handler import StructuredOpensearchHandler, INDEX_DATE_FORMAT, DEFAULT_INDEX_NAME
-from opensearch_log.stdout_handler import append_stdout_json_handler
-from opensearch_log import json_formatter
-from opensearch_log import LogFields
+from opensearch_log.stdout_handler import add_stdout_json_handler
+from opensearch_log import json_log
+from opensearch_log import Fields
 from tests.conftest import MockLogRecord, opensearch_handler, capture_logs
 import opensearchpy.exceptions
 
@@ -129,11 +129,11 @@ def test_opensearch_handler_ping_called():
 
 
 def test_opensearch_log(opensearch_handler):
-    logger = json_formatter.get_json_logger(
-        component="-mock-component-",
+    logger = json_log.get_logger(
+        application="-mock-component-",
         log_handler=opensearch_handler,
     )
-    with LogFields(image_id="-mock-image-"):
+    with Fields(my_field="-mock-my-field-"):
         logger.info("Mock log message")
         opensearch_handler.flush()
 
@@ -145,18 +145,18 @@ def test_opensearch_log(opensearch_handler):
 
     assert kwargs["actions"][0]["_index"] == opensearch_handler._get_index_name()
     assert kwargs["actions"][0]["_source"]["message"] == "Mock log message"
-    assert kwargs["actions"][0]["_source"]["image_id"] == "-mock-image-"
-    assert kwargs["actions"][0]["_source"]["component"] == "-mock-component-"
+    assert kwargs["actions"][0]["_source"]["my_field"] == "-mock-my-field-"
+    assert kwargs["actions"][0]["_source"]["application"] == "-mock-component-"
     assert kwargs["actions"][0]["_source"]["levelname"] == "INFO"
 
 
 def test_opensearch_log_echo_stdout(opensearch_handler):
-    logger = json_formatter.get_json_logger(
-        component="-mock-component-",
+    logger = json_log.get_logger(
+        application="-mock-component-",
         log_handler=opensearch_handler,
         clear_handlers=True,
     )
-    append_stdout_json_handler(logger)
+    add_stdout_json_handler(logger)
 
     with capture_logs(logger) as logs:
         logger.info("Mock message")
@@ -165,12 +165,12 @@ def test_opensearch_log_echo_stdout(opensearch_handler):
         log_data = json.loads(log_contents.split("\n")[0])  # pytest add handlers that duplicate log messages
 
         assert log_data["message"] == "Mock message"
-        assert log_data["component"] == "-mock-component-"
+        assert log_data["application"] == "-mock-component-"
 
 
 def test_opensearch_log_not_echo_stdout(opensearch_handler):
-    logger = json_formatter.get_json_logger(
-        component="-mock-component-",
+    logger = json_log.get_logger(
+        application="-mock-component-",
         log_handler=opensearch_handler,
         echo_stdout=False,
         clear_handlers=True,
@@ -188,14 +188,14 @@ def test_opensearch_log_context_unserializable(opensearch_handler):
     class UnSerializable:
         pass
 
-    logger = json_formatter.get_json_logger(
-        component="-mock-component-",
+    logger = json_log.get_logger(
+        application="-mock-component-",
         log_handler=opensearch_handler,
         echo_stdout=False,
         clear_handlers=True,
     )
 
-    with LogFields(field=UnSerializable()):
+    with Fields(field=UnSerializable()):
         logger.info("Mock message")
         logger.info("Mock message2")
 
@@ -238,8 +238,8 @@ def test_opensearch_log_flush_exception(opensearch_handler):
 
 def test_opensearch_log_bulk_size(opensearch_handler):
     with patch.object(opensearch_handler, 'buffer_size', 1):
-        logger = json_formatter.get_json_logger(
-            component="-mock-component-",
+        logger = json_log.get_logger(
+            application="-mock-component-",
             log_handler=opensearch_handler,
             echo_stdout=False,
             clear_handlers=True,
@@ -252,8 +252,8 @@ def test_opensearch_log_bulk_size(opensearch_handler):
     opensearch_handler._get_opensearch_client().bulk_calls = []
 
     with patch.object(opensearch_handler, 'buffer_size', 2):
-        logger = json_formatter.get_json_logger(
-            component="-mock-component-",
+        logger = json_log.get_logger(
+            application="-mock-component-",
             log_handler=opensearch_handler,
             echo_stdout=False,
             clear_handlers=True,
