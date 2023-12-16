@@ -11,7 +11,7 @@ from unittest.mock import MagicMock, patch
 from opensearch_log.opensearch_handler import StructuredOpensearchHandler, INDEX_DATE_FORMAT, DEFAULT_INDEX_NAME
 from opensearch_log.stdout_handler import add_stdout_json_handler
 from opensearch_log import json_log
-from opensearch_log import Fields
+from opensearch_log import Logging
 from tests.conftest import MockLogRecord, opensearch_handler, capture_logs
 import opensearchpy.exceptions
 
@@ -133,7 +133,7 @@ def test_opensearch_log(opensearch_handler):
         application="-mock-component-",
         log_handler=opensearch_handler,
     )
-    with Fields(my_field="-mock-my-field-"):
+    with Logging(my_field="-mock-my-field-"):
         logger.info("Mock log message")
         opensearch_handler.flush()
 
@@ -195,7 +195,7 @@ def test_opensearch_log_context_unserializable(opensearch_handler):
         clear_handlers=True,
     )
 
-    with Fields(field=UnSerializable()):
+    with Logging(field=UnSerializable()):
         logger.info("Mock message")
         logger.info("Mock message2")
 

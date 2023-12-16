@@ -1,9 +1,8 @@
 """JSON logging."""
 import logging
 import sys
-from contextlib import contextmanager
 from functools import wraps
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Type
 
 from pythonjsonlogger import jsonlogger
 
@@ -81,15 +80,27 @@ def remove_log_fields(*fields: str) -> None:
         _log_values.pop(key, None)
 
 
-@contextmanager
-def Fields(**values: Any) -> Any:  # pylint: disable=invalid-name
-    """Include fields `values` to all log records."""
-    # todo: implement as class so the name will be in correct case # pylint: disable=fixme
-    added_fields = add_log_fields(**values)
-    try:
-        yield
-    finally:
-        remove_log_fields(*added_fields)
+class Logging:
+    """Context manager to add fields to log records."""
+
+    def __init__(self, **values: Any) -> None:
+        """Initialize the context manager with fields to add to log records."""
+        self.values = values
+        self.added_fields: List[str] = []
+
+    def __enter__(self) -> "Logging":
+        """Enter the context: add fields to log records."""
+        self.added_fields = add_log_fields(**self.values)
+        return self
+
+    def __exit__(
+        self,
+        exc_type: Optional[Type[BaseException]],
+        exc_value: Optional[BaseException],
+        traceback: Optional[Any],
+    ) -> None:
+        """Exit the context: remove the added fields from log records."""
+        remove_log_fields(*self.added_fields)
 
 
 def log_fields(func: Optional[Any] = None, **values: Any) -> Any:

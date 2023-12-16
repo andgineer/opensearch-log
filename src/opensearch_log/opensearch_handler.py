@@ -249,10 +249,10 @@ def get_logger(  # pylint: disable=too-many-arguments
 
 
 if __name__ == "__main__":
-    from opensearch_log import Fields
+    from opensearch_log import Logging
 
     # from stdout_handler import get_logger
 
     logger = get_logger(echo_stdout=True)
-    with Fields(my_log_field="From Python"):
+    with Logging(my_log_field="From Python"):
         logger.info("Hello World")

@@ -21,15 +21,20 @@ Ideal for applications ranging from small-scale projects to large enterprise sys
 OpenSearchLogHandler provides a robust and straightforward solution for managing logs 
 with OpenSearch.
 
+## Installation
+
+```bash
+pip install opensearch-log
+```
 
 ## TL;DR
 
 ```python
-from opensearch_log import Fields
+from opensearch_log import Logging
 from opensearch_log.opensearch_handler import get_logger
 
-logger = get_logger(index_name = "myindex", echo_stdout=True)
-with Fields(my_log_field="From Python"):
+logger = get_logger(index_name="myindex", echo_stdout=True)
+with Logging(my_log_field="From Python"):
     logger.info("Hello World")
 ```
 

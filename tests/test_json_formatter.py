@@ -1,7 +1,7 @@
 import datetime
 import json
 
-from opensearch_log import Fields, log_fields
+from opensearch_log import Logging, log_fields
 from opensearch_log.stdout_handler import get_logger
 from tests.conftest import capture_logs
 
@@ -48,7 +48,7 @@ def test_log_var_decorator_with_value(caplog, log):
 
 
 def test_log_ctx_with_values(caplog, log):
-    with Fields(explicit_field_ctx="ExplicitValueCtx", field2="Value2"):
+    with Logging(explicit_field_ctx="ExplicitValueCtx", field2="Value2"):
         log.info("This is an info message inside context manager with explicit value.")
 
     assert len(caplog.records) == 1
