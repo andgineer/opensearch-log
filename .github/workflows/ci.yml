@@ -5,9 +5,9 @@ name: CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, main ]
   pull_request:
-    branches: [ master ]
+    branches: [ master, main ]
 
 jobs:
   build:
@@ -41,7 +41,9 @@ jobs:
 
     - name: Upload Coverage to Codecov
       if: ${{ matrix.python-version == 3.11 && matrix.platform == 'ubuntu-latest' }}
-      uses: codecov/codecov-action@v2
+      uses: codecov/codecov-action@v3
+      env:
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
     - name: Coverage comment
       id: coverage_comment
