@@ -1,5 +1,6 @@
 # test
 pytest
+moto
 pytest-cov
 coveralls
 

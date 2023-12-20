@@ -5,8 +5,8 @@ build-backend = "hatchling.build"
 [project]
 name = "opensearch-log"
 dynamic = [ "version",]
-description = "A Python logging handler for efficient and reliable direct log transmission to OpenSearch."
-keywords = [ "opensearch", "log", "log-handler",]
+description = "A Python logging handler for efficient and reliable direct log transmission to OpenSearch, CloudWatch with additional fields."
+keywords = [ "opensearch", "log", "log-handler", "logging", "cloudwatch", "aws", "elasticsearch", "kibana"]
 classifiers = [ "Programming Language :: Python :: 3", "License :: OSI Approved :: MIT License", "Operating System :: OS Independent",]
 readme = "README.md"
 requires-python = ">=3.9"

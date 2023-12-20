@@ -7,7 +7,10 @@ from typing import Optional, Any, Dict, List, Tuple
 from unittest.mock import patch, MagicMock
 
 from opensearch_log.json_log import _log_values
-from opensearch_log import json_log
+from opensearch_log import json_log, CloudwatchHandler
+from moto import mock_logs
+
+import boto3
 
 from opensearch_log.stdout_handler import get_logger
 from opensearch_log.base_handler import BaseHandler
@@ -131,6 +134,36 @@ def opensearch_handler():
     with patch(
             'opensearch_log.opensearch_handler.StructuredOpensearchHandler._get_opensearch_client', return_value=MockOpenSearchClient()):
         handler = StructuredOpensearchHandler()
+        yield handler
+        handler.close()
+
+    if json_log._logger is not None:
+        handlers_to_remove = [
+            handler for handler in json_log._logger.handlers
+            if isinstance(handler, BaseHandler)
+        ]
+        for handler in handlers_to_remove:
+            json_log._logger.removeHandler(handler)
+        json_log._logger = None
+
+
+@pytest.fixture(scope="function")
+def cloudwatch_handler():
+    json_log._logger = None
+    log_group = "test-log-group"
+    log_stream = "test-log-stream"
+
+    with patch.dict(os.environ, {
+        'AWS_DEFAULT_REGION': 'us-west-2',
+        'AWS_ACCESS_KEY_ID': 'testing',
+        'AWS_SECRET_ACCESS_KEY': 'testing'
+    }), mock_logs():
+        # Create the log group and stream beforehand
+        client = boto3.client("logs")
+        client.create_log_group(logGroupName=log_group)
+        client.create_log_stream(logGroupName=log_group, logStreamName=log_stream)
+
+        handler = CloudwatchHandler(log_group=log_group, log_stream=log_stream)
         yield handler
         handler.close()
 
