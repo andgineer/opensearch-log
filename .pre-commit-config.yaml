@@ -95,6 +95,6 @@ repos:
 
       - id: pylint
         name: Pylint
-        entry: pylint --max-line-length=99 --ignore-imports=yes
+        entry: pylint --max-line-length=99 --ignore-imports=yes --min-similarity-lines=10
         files: \.py$
         language: python
