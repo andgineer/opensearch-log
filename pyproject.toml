@@ -25,6 +25,9 @@ Documentation = "https://andgineer.github.io/opensearch-log/"
 [tool.setuptools]
 packages = "find:"
 
+[tool.ruff]
+line-length = 99
+
 [tool.setuptools.package-dir]
 "" = "src"
 
