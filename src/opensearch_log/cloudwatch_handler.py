@@ -132,7 +132,7 @@ class CloudwatchHandler(BaseHandler):  # pylint: disable=too-many-instance-attri
         super().close()
 
 
-def get_json_logger(
+def get_logger(
     *args: Any,
     echo_stdout: bool = False,
     log_group: str,

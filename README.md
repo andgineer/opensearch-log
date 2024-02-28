@@ -3,7 +3,9 @@
 # opensearch-log
 
 opensearch-log is a Python logging handler for direct and efficient log transmission to
-OpenSearch or CloudWatch.
+OpenSearch or AWS CloudWatch.
+
+It can also be used for local JSON logging to stdout.
 
 With context manager or function decorator you can add additional fields to log messages.
 

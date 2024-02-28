@@ -40,7 +40,7 @@ IGNORED_LOG_RECORD_FIELDS = [
 ]
 
 
-class StructuredOpensearchHandler(BaseHandler):  # pylint: disable=too-many-instance-attributes
+class OpensearchHandler(BaseHandler):  # pylint: disable=too-many-instance-attributes
     """Handler to send log records to AWS OpenSearch."""
 
     DAILY = IndexRotation.DAILY
@@ -233,7 +233,7 @@ def get_logger(  # pylint: disable=too-many-arguments
     assert log_handler is None, "log_handler should not be specified"
     result = json_log.get_logger(
         *args,
-        log_handler=StructuredOpensearchHandler(
+        log_handler=OpensearchHandler(
             opensearch_host=opensearch_host,
             index_name=index_name,
             index_rotate=index_rotate,

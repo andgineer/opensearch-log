@@ -8,7 +8,7 @@ import pytest
 from opensearch_log.opensearch_serializer import OpenSearchSerializer
 from unittest.mock import MagicMock, patch
 
-from opensearch_log.opensearch_handler import StructuredOpensearchHandler, INDEX_DATE_FORMAT, DEFAULT_INDEX_NAME
+from opensearch_log.opensearch_handler import OpensearchHandler, INDEX_DATE_FORMAT, DEFAULT_INDEX_NAME
 from opensearch_log.stdout_handler import add_stdout_json_handler
 from opensearch_log import json_log
 from opensearch_log import Logging
@@ -73,7 +73,7 @@ def test_close(opensearch_handler):
 
 
 def test_index_naming(opensearch_handler):
-    opensearch_handler.index_rotate = StructuredOpensearchHandler.MONTHLY
+    opensearch_handler.index_rotate = OpensearchHandler.MONTHLY
     index_name = opensearch_handler._get_index_name()
 
     # Check the prefix
@@ -84,7 +84,7 @@ def test_index_naming(opensearch_handler):
     expected_date_str = current_date.strftime(INDEX_DATE_FORMAT)
     assert index_name.endswith(expected_date_str)
 
-    opensearch_handler.index_rotate = StructuredOpensearchHandler.DAILY
+    opensearch_handler.index_rotate = OpensearchHandler.DAILY
     index_name = opensearch_handler._get_index_name()
 
     # Check the prefix
@@ -122,9 +122,9 @@ def test_opensearch_handler_ping_called():
     mock_opensearch_client = MagicMock()
 
     with patch(
-            'opensearch_log.opensearch_handler.StructuredOpensearchHandler._get_opensearch_client',
+            'opensearch_log.opensearch_handler.OpensearchHandler._get_opensearch_client',
             return_value=mock_opensearch_client):
-        StructuredOpensearchHandler()
+        OpensearchHandler()
         mock_opensearch_client.ping.assert_called_once()
 
 

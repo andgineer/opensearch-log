@@ -7,7 +7,8 @@ from typing import Optional, Any, Dict, List, Tuple
 from unittest.mock import patch, MagicMock
 
 from opensearch_log.json_log import _log_values
-from opensearch_log import json_log, CloudwatchHandler
+from opensearch_log import json_log
+from opensearch_log.cloudwatch_handler import  CloudwatchHandler
 from moto import mock_logs
 
 import boto3
@@ -18,7 +19,7 @@ from opensearch_log.stdout_handler import StdoutHandler
 
 import pytest
 
-from opensearch_log.opensearch_handler import StructuredOpensearchHandler
+from opensearch_log.opensearch_handler import OpensearchHandler
 from opensearch_log.opensearch_serializer import OpenSearchSerializer
 import opensearchpy.exceptions
 
@@ -132,8 +133,8 @@ def opensearch_handler():
     json_log._logger = None
 
     with patch(
-            'opensearch_log.opensearch_handler.StructuredOpensearchHandler._get_opensearch_client', return_value=MockOpenSearchClient()):
-        handler = StructuredOpensearchHandler()
+            'opensearch_log.opensearch_handler.OpensearchHandler._get_opensearch_client', return_value=MockOpenSearchClient()):
+        handler = OpensearchHandler()
         yield handler
         handler.close()
 
