@@ -1,4 +1,5 @@
 """JSON logging."""
+import contextvars
 import logging
 import sys
 from functools import wraps
@@ -10,7 +11,9 @@ from opensearch_log.base_handler import BaseHandler
 
 _logger: Optional[logging.Logger] = None
 _logger_params: Optional[Dict[str, Optional[str]]] = None
-_log_values: Dict[str, Any] = {}
+_log_fields: contextvars.ContextVar[dict[str, object]] = contextvars.ContextVar(
+    "log_fields", default={}
+)
 
 
 def set_record_factory() -> None:
@@ -19,8 +22,10 @@ def set_record_factory() -> None:
 
     def _record_factory(*args: Any, **kwargs: Any) -> logging.LogRecord:
         record = original_factory(*args, **kwargs)
-        for field, value in _log_values.items():
-            setattr(record, field, value)
+        fields = _log_fields.get()
+        if fields:
+            for field, value in fields.items():
+                setattr(record, field, value)
         return record
 
     logging.setLogRecordFactory(_record_factory)
@@ -70,14 +75,18 @@ def remove_handlers(_logger: logging.Logger) -> None:
 
 def add_log_fields(**values: Any) -> List[str]:
     """Include fields to all log records."""
-    _log_values.update(values)
+    current_fields = _log_fields.get()
+    current_fields.update(values)
+    _log_fields.set(current_fields)
     return list(values.keys())
 
 
 def remove_log_fields(*fields: str) -> None:
     """Remove logged fields."""
+    current_fields = _log_fields.get()
     for key in fields:
-        _log_values.pop(key, None)
+        current_fields.pop(key, None)
+    _log_fields.set(current_fields)
 
 
 class Logging:

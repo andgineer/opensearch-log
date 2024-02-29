@@ -6,7 +6,6 @@ from contextlib import contextmanager
 from typing import Optional, Any, Dict, List, Tuple
 from unittest.mock import patch, MagicMock
 
-from opensearch_log.json_log import _log_values
 from opensearch_log import json_log
 from opensearch_log.cloudwatch_handler import  CloudwatchHandler
 from moto import mock_logs
