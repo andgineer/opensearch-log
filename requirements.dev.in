@@ -1,3 +1,5 @@
+-r requirements.txt
+
 # test
 pytest
 moto
@@ -17,6 +19,5 @@ pymdown-extensions
 mkdocs-awesome-pages-plugin
 
 # build & reqs management
-pip-tools
 hatchling
 toml
