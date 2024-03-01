@@ -40,6 +40,7 @@ def opensearch_handler(opensearch_container):
     yield handler
 
 
+@pytest.mark.docker
 def test_wth_opensearch(opensearch_handler):
     logger = json_log.get_logger(
         application="-mock-component-",
