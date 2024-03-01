@@ -30,7 +30,6 @@ jobs:
 
     env:
       PYTEST_CMD: "python -m pytest --junitxml=pytest.xml --cov-report=term-missing:skip-covered --cov=src tests/"
-      PYTEST_NO_DOCKER_CMD: "${{ env.PYTEST_CMD }} -m 'not docker'"
       FULL_TEST_PYTHON_VERSION: '3.11'
       FULL_TEST_PLATFORM: 'ubuntu-latest'
 
@@ -50,7 +49,7 @@ jobs:
 
     - name: tests without testcontainers
       if: ${{ matrix.python-version != env.FULL_TEST_PYTHON_VERSION || matrix.platform != env.FULL_TEST_PLATFORM }}
-      run: ${{ env.PYTEST_CMD }}
+      run: "${{ env.PYTEST_CMD }} -m 'not docker'"
 
     - name: tests with testcontainers
       if: ${{ matrix.python-version == env.FULL_TEST_PYTHON_VERSION && matrix.platform == env.FULL_TEST_PLATFORM }}
