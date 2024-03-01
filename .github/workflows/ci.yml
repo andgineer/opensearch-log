@@ -45,7 +45,7 @@ jobs:
         python -m pip install -e .
 
     - name: For non-target platforms, set PYTEST_CMD to exclude docker tests
-      if: matrix.python-version != '3.11' && matrix.platform != 'ubuntu-latest'
+      if: matrix.python-version != '3.11' || matrix.platform != 'ubuntu-latest'
       run: echo "PYTEST_CMD=${{ env.PYTEST_CMD }} -m 'not docker'" >> $GITHUB_ENV
 
     - name: Run pytest
