@@ -36,10 +36,14 @@ coverage==6.5.0
 coveralls==3.3.1
 cryptography==41.0.7
     # via moto
+deprecation==2.1.0
+    # via testcontainers
 dill==0.3.7
     # via pylint
 distlib==0.3.8
     # via virtualenv
+docker==7.0.0
+    # via testcontainers
 docopt==0.6.2
     # via coveralls
 editables==0.5
@@ -100,6 +104,8 @@ nodeenv==1.8.0
 opensearch-py==2.4.2
 packaging==23.2
     # via
+    #   deprecation
+    #   docker
     #   hatchling
     #   mkdocs
     #   pytest
@@ -151,6 +157,7 @@ regex==2023.12.25
 requests==2.31.0
     # via
     #   coveralls
+    #   docker
     #   mkdocs-material
     #   moto
     #   opensearch-py
@@ -167,6 +174,7 @@ six==1.16.0
     #   python-dateutil
 snowballstemmer==2.2.0
     # via pydocstyle
+testcontainers==3.7.1
 toml==0.10.2
 tomlkit==0.12.3
     # via pylint
@@ -181,6 +189,7 @@ typing-extensions==4.9.0
 urllib3==1.26.18
     # via
     #   botocore
+    #   docker
     #   opensearch-py
     #   requests
     #   responses
@@ -192,5 +201,7 @@ wcmatch==8.5
     # via mkdocs-awesome-pages-plugin
 werkzeug==3.0.1
     # via moto
+wrapt==1.16.0
+    # via testcontainers
 xmltodict==0.13.0
     # via moto

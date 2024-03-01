@@ -3,6 +3,7 @@
 # test
 pytest
 moto
+testcontainers
 pytest-cov
 coveralls
 

@@ -248,6 +248,16 @@ def get_logger(  # pylint: disable=too-many-arguments
     return result
 
 
+def restore_logger() -> None:
+    """Flush and remove all handlers."""
+    logging.shutdown()
+    assert json_log._logger is not None  # pylint: disable=protected-access
+    for handler in json_log._logger.handlers.copy():  # pylint: disable=protected-access
+        if isinstance(handler, OpensearchHandler):
+            json_log._logger.removeHandler(handler)  # pylint: disable=protected-access
+    json_log._logger = None  # pylint: disable=protected-access
+
+
 if __name__ == "__main__":
     from opensearch_log import Logging
 
