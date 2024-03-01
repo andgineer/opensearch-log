@@ -36,6 +36,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v1
       with:
@@ -48,11 +49,11 @@ jobs:
         python -m pip install -e .
 
     - name: tests without testcontainers
-      if: matrix.python-version != env.FULL_TEST_PYTHON_VERSION || matrix.platform != env.FULL_TEST_PLATFORM
+      if: ${{ matrix.python-version != env.FULL_TEST_PYTHON_VERSION || matrix.platform != env.FULL_TEST_PLATFORM }}
       run: ${{ env.PYTEST_CMD }}
 
     - name: tests with testcontainers
-      if: matrix.python-version == env.FULL_TEST_PYTHON_VERSION && matrix.platform == env.FULL_TEST_PLATFORM
+      if: ${{ matrix.python-version == env.FULL_TEST_PYTHON_VERSION && matrix.platform == env.FULL_TEST_PLATFORM }}
       run: ${{ env.PYTEST_CMD }}
 
     - name: Coverage comment
