@@ -1,4 +1,7 @@
 import logging
+import os
+from unittest.mock import patch
+
 import pytest
 import requests
 from opensearch_log.opensearch_handler import OpensearchHandler, restore_logger
@@ -10,6 +13,15 @@ from testcontainers.elasticsearch import ElasticSearchContainer
 INDEX_NAME = "myindex"
 
 
+@pytest.fixture(autouse=True)
+def mock_aws_creds():
+    with patch.dict(os.environ, {
+        'AWS_DEFAULT_REGION': 'eu-west-1',
+        'AWS_ACCESS_KEY_ID': 'access-key-id',
+        'AWS_SECRET_ACCESS_KEY': 'secret-access-key',
+    }):
+        yield
+
 
 @pytest.fixture(scope="module")
 def opensearch_container():
@@ -19,7 +31,7 @@ def opensearch_container():
 
 
 @pytest.fixture
-def opensearch_handler(opensearch_container):
+def opensearch_handler(opensearch_container, mock_aws_creds):
     # Get the Elasticsearch container's IP address and port
     es_ip = opensearch_container.get_container_host_ip()
     es_port = opensearch_container.get_docker_client().port(  # to work inside CI Docker
@@ -46,11 +58,9 @@ def test_wth_opensearch(opensearch_handler):
         application="-mock-component-",
         log_handler=opensearch_handler,
     )
-    print("#"*50, "before log")
     with Logging(my_field="-mock-my-field-"):
         logger.info("Mock log message")
         restore_logger()
-    print("#"*50, "after log")
     es_ip = opensearch_handler.opensearch_host.split(":")[1].replace("//", "")
     es_port = opensearch_handler.opensearch_host.split(":")[2]
 
@@ -67,8 +77,5 @@ def test_wth_opensearch(opensearch_handler):
 
     assert response.status_code == 200
     response_data = response.json()
-    print("#" * 50, "query")
-    import pprint
-    pprint.pprint(response_data)
     assert response_data["hits"]["total"]["value"] == 1
 
