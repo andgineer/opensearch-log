@@ -1,4 +1,5 @@
 """JSON logging."""
+
 import contextvars
 import logging
 import sys

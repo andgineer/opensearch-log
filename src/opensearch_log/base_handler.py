@@ -1,4 +1,5 @@
 """Base logger for structured logging."""
+
 import logging
 from typing import Optional
 

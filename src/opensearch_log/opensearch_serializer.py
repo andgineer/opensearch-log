@@ -1,4 +1,5 @@
 """JSON serializer."""
+
 from typing import Any
 
 from opensearchpy.serializer import JSONSerializer

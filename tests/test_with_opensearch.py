@@ -22,7 +22,9 @@ def opensearch_container():
 def opensearch_handler(opensearch_container):
     # Get the Elasticsearch container's IP address and port
     es_ip = opensearch_container.get_container_host_ip()
-    es_port = opensearch_container.get_exposed_port(9200)
+    es_port = opensearch_container.get_docker_client().port(  # to work inside CI Docker
+        opensearch_container._container.id, 9200  # pylint: disable=protected-access
+    )
 
     # Check if the Elasticsearch container is ready
     try:

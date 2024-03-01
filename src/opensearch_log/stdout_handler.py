@@ -1,4 +1,5 @@
 """JSON logging to stdout."""
+
 import logging
 from typing import Any, Optional
 
