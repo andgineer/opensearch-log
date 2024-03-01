@@ -30,6 +30,9 @@ jobs:
 
     env:
       PYTEST_CMD: "python -m pytest --junitxml=pytest.xml --cov-report=term-missing:skip-covered --cov=src tests/"
+      PYTEST_NO_DOCKER_CMD: ${{ env.PYTEST_CMD }} -m 'not docker'
+      FULL_TEST_PYTHON_VERSION: 3.11
+      FULL_TEST_PLATFORM: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
@@ -44,16 +47,17 @@ jobs:
         pip install -r requirements.dev.txt
         python -m pip install -e .
 
-    - name: For non-target platforms, set PYTEST_CMD to exclude docker tests
-      if: matrix.python-version != '3.11' || matrix.platform != 'ubuntu-latest'
-      run: echo "PYTEST_CMD=${{ env.PYTEST_CMD }} -m 'not docker'" >> $GITHUB_ENV
+    - name: tests without testcontainers
+      if: matrix.python-version != env.FULL_TEST_PYTHON_VERSION || matrix.platform != env.FULL_TEST_PLATFORM
+      run: ${{ env.PYTEST_CMD }}
 
-    - name: Run pytest
+    - name: tests with testcontainers
+      if: matrix.python-version == env.FULL_TEST_PYTHON_VERSION && matrix.platform == env.FULL_TEST_PLATFORM
       run: ${{ env.PYTEST_CMD }}
 
     - name: Coverage comment
       id: coverage_comment
-      if: ${{ matrix.python-version == 3.11 && matrix.platform == 'ubuntu-latest' }}
+      if: ${{ matrix.python-version == env.FULL_TEST_PYTHON_VERSION && matrix.platform == env.FULL_TEST_PLATFORM }}
       uses: py-cov-action/python-coverage-comment-action@v3
       with:
         GITHUB_TOKEN: ${{ github.token }}
@@ -68,13 +72,13 @@ jobs:
         path: python-coverage-comment-action.txt
 
     - name: Upload coverage data to coveralls.io
-      if: ${{ matrix.python-version == 3.11 && matrix.platform == 'ubuntu-latest' }}
+      if: ${{ matrix.python-version == env.FULL_TEST_PYTHON_VERSION && matrix.platform == env.FULL_TEST_PLATFORM }}
       run: coveralls --service=github
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Upload Coverage to Codecov
-      if: ${{ matrix.python-version == 3.11 && matrix.platform == 'ubuntu-latest' }}
+      if: ${{ matrix.python-version == env.FULL_TEST_PYTHON_VERSION && matrix.platform == env.FULL_TEST_PLATFORM }}
       uses: codecov/codecov-action@v3
       env:
         CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
