@@ -28,7 +28,7 @@ jobs:
           python-version: ${{ env.PRIMARY_PYTHON_VERSION  }}
       - run: |
           pip install uv
-          uv pip install -r requirements.dev.txt
+          uv pip install -r requirements.dev.txt --python=${{ matrix.python-version }}
           uv pip install ghp-import
           uv pip install -e .
       - run: ./scripts/build-docs.sh
