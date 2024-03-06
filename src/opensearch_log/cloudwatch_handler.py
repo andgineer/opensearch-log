@@ -6,9 +6,15 @@ import time
 from threading import Lock, Timer
 from typing import Any, Dict, List, Optional
 
-import boto3
-import botocore.errorfactory
-import botocore.exceptions
+try:
+    import boto3
+    import botocore.errorfactory
+    import botocore.exceptions
+except ImportError as e:
+    raise ImportError(
+        "To use CloudwatchHandler please install with this feature: "
+        "`pip install opensearch-log[cloudwatch]`."
+    ) from e
 
 from opensearch_log import json_log
 from opensearch_log.base_handler import BaseHandler
@@ -113,9 +119,9 @@ class CloudwatchHandler(BaseHandler):  # pylint: disable=too-many-instance-attri
                     logEvents=logs_buffer,
                 )
                 break
-            except botocore.exceptions.ClientError as e:
+            except botocore.exceptions.ClientError as exc:
                 retries += 1
-                print(f"Retry {retries}: Could not send logs to CloudWatch: {e}")
+                print(f"Retry {retries}: Could not send logs to CloudWatch: {exc}")
                 if retries >= RETRY_NUM:
                     print("Exhausted retries. Lost logs:\n", logs_buffer)
 

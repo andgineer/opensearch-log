@@ -2,7 +2,13 @@
 
 from typing import Any
 
-from opensearchpy.serializer import JSONSerializer
+try:
+    from opensearchpy.serializer import JSONSerializer
+except ImportError as e:
+    raise ImportError(
+        "To use OpensearchHandler please install with this feature: "
+        "`pip install opensearch-log[opensearch]`."
+    ) from e
 
 
 class OpenSearchSerializer(JSONSerializer):

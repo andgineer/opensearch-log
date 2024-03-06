@@ -5,7 +5,11 @@ from time import sleep
 
 import pytest
 
-from opensearch_log.opensearch_serializer import OpenSearchSerializer
+try:
+    from opensearch_log.opensearch_serializer import OpenSearchSerializer
+except ImportError:
+    pass
+
 from unittest.mock import MagicMock, patch
 
 from opensearch_log.opensearch_handler import OpensearchHandler, INDEX_DATE_FORMAT, DEFAULT_INDEX_NAME
@@ -13,9 +17,9 @@ from opensearch_log.stdout_handler import add_stdout_json_handler
 from opensearch_log import json_log
 from opensearch_log import Logging
 from tests.conftest import MockLogRecord, opensearch_handler, capture_logs
-import opensearchpy.exceptions
 
 
+@pytest.mark.opensearch
 def test_emit(opensearch_handler):
     record = MockLogRecord(
         name='test_logger',
@@ -34,6 +38,7 @@ def test_emit(opensearch_handler):
     assert opensearch_handler._buffer[0]['filename'] == 'test.py'
 
 
+@pytest.mark.opensearch
 def test_flush(opensearch_handler):
     record = MockLogRecord(
         name='test_logger',
@@ -53,6 +58,7 @@ def test_flush(opensearch_handler):
     assert len(opensearch_handler._buffer) == 0
 
 
+@pytest.mark.opensearch
 def test_close(opensearch_handler):
     record = MockLogRecord(
         name='test_logger',
@@ -72,6 +78,7 @@ def test_close(opensearch_handler):
     assert len(opensearch_handler._buffer) == 0
 
 
+@pytest.mark.opensearch
 def test_index_naming(opensearch_handler):
     opensearch_handler.index_rotate = OpensearchHandler.MONTHLY
     index_name = opensearch_handler._get_index_name()
@@ -96,6 +103,7 @@ def test_index_naming(opensearch_handler):
     assert index_name.endswith(expected_date_str)
 
 
+@pytest.mark.opensearch
 def test_get_opensearch_datetime_str(opensearch_handler):
     timestamp = 1634616000.123  # October 19, 2021, 12:00:00.123 UTC
 
@@ -111,6 +119,7 @@ def test_get_opensearch_datetime_str(opensearch_handler):
     assert actual_datetime == expected_datetime
 
 
+@pytest.mark.opensearch
 def test_test_opensearch_connection(opensearch_handler):
     mock_opensearch_client = MagicMock()
 
@@ -118,6 +127,7 @@ def test_test_opensearch_connection(opensearch_handler):
         assert opensearch_handler.is_connected() is True
 
 
+@pytest.mark.opensearch
 def test_opensearch_handler_ping_called():
     mock_opensearch_client = MagicMock()
 
@@ -128,6 +138,7 @@ def test_opensearch_handler_ping_called():
         mock_opensearch_client.ping.assert_called_once()
 
 
+@pytest.mark.opensearch
 def test_opensearch_log(opensearch_handler):
     logger = json_log.get_logger(
         application="-mock-component-",
@@ -150,6 +161,7 @@ def test_opensearch_log(opensearch_handler):
     assert kwargs["actions"][0]["_source"]["levelname"] == "INFO"
 
 
+@pytest.mark.opensearch
 def test_opensearch_log_echo_stdout(opensearch_handler):
     logger = json_log.get_logger(
         application="-mock-component-",
@@ -168,6 +180,7 @@ def test_opensearch_log_echo_stdout(opensearch_handler):
         assert log_data["application"] == "-mock-component-"
 
 
+@pytest.mark.opensearch
 def test_opensearch_log_not_echo_stdout(opensearch_handler):
     logger = json_log.get_logger(
         application="-mock-component-",
@@ -183,6 +196,7 @@ def test_opensearch_log_not_echo_stdout(opensearch_handler):
         assert log_contents == ''
 
 
+@pytest.mark.opensearch
 def test_opensearch_log_context_unserializable(opensearch_handler):
     """If default OpenSearch serialization fails we catch the exception and use default serialization."""
     class UnSerializable:
@@ -200,6 +214,7 @@ def test_opensearch_log_context_unserializable(opensearch_handler):
         logger.info("Mock message2")
 
 
+@pytest.mark.opensearch
 def test_opensearch_log_unserializable(opensearch_handler):
 
     class UnSerializable:
@@ -208,6 +223,7 @@ def test_opensearch_log_unserializable(opensearch_handler):
     assert "UnSerializable" in OpenSearchSerializer().dumps({"field": UnSerializable()})
 
 
+@pytest.mark.opensearch
 def test_opensearch_log_flush_exception(opensearch_handler):
     record = MockLogRecord(
         name='test_logger',
@@ -236,6 +252,7 @@ def test_opensearch_log_flush_exception(opensearch_handler):
     assert len(opensearch_handler._buffer) == 0
 
 
+@pytest.mark.opensearch
 def test_opensearch_log_bulk_size(opensearch_handler):
     with patch.object(opensearch_handler, 'buffer_size', 1):
         logger = json_log.get_logger(

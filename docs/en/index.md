@@ -11,8 +11,12 @@ added to log messages.
 ## Installation
 
 ```bash
-pip install opensearch-log
+pip install -e ".[cloudwatch,opensearch]"
 ```
+
+If you need only CloudWatch or OpenSearch corresponding extras should be installed.
+For just JSON logging to stdout, no extras are required.
+
 
 ## Setup logger
 To configure the logger globally, utilize the appropriate `get_logger` function based on your 

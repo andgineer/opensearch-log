@@ -4,9 +4,14 @@ from unittest.mock import patch
 
 import pytest
 import requests
-from opensearch_log.opensearch_handler import OpensearchHandler, restore_logger
-from opensearch_log import json_log
-from opensearch_log import Logging
+
+try:
+    from opensearch_log.opensearch_handler import OpensearchHandler, restore_logger
+    from opensearch_log import json_log
+    from opensearch_log import Logging
+except ImportError:
+    pass
+
 from testcontainers.elasticsearch import ElasticSearchContainer
 
 
@@ -53,6 +58,7 @@ def opensearch_handler(opensearch_container, mock_aws_creds):
 
 
 @pytest.mark.docker
+@pytest.mark.opensearch
 def test_wth_opensearch(opensearch_handler):
     logger = json_log.get_logger(
         application="-mock-component-",

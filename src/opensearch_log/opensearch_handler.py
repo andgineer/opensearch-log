@@ -8,7 +8,14 @@ from threading import Lock, Timer
 from typing import Any, Dict, List, Optional, Union
 
 import boto3
-from opensearchpy import AWSV4SignerAuth, OpenSearch, RequestsHttpConnection, helpers
+
+try:
+    from opensearchpy import AWSV4SignerAuth, OpenSearch, RequestsHttpConnection, helpers
+except ImportError as e:
+    raise ImportError(
+        "To use OpensearchHandler please install with this feature: "
+        "`pip install opensearch-log[opensearch]`."
+    ) from e
 
 from opensearch_log import json_log
 from opensearch_log.base_handler import BaseHandler

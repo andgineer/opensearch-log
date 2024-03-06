@@ -13,8 +13,11 @@ OpenSearch или AWS CloudWatch.
 Для установки `opensearch-log` выполните следующую команду:
 
 ```bash
-pip install opensearch-log
+pip install -e ".[cloudwatch,opensearch]"
 ```
+
+Если вам нужны только CloudWatch или только OpenSearch, оставьте только их в списке расширений.
+Для логирования в формате JSON в stdout никаких дополнений не требуется.
 
 ## Настройка логгера
 

@@ -2,7 +2,7 @@
 
 # test
 pytest
-moto
+moto>=5.0.0
 testcontainers
 pytest-cov
 coveralls

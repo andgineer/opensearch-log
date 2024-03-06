@@ -10,7 +10,13 @@ keywords = [ "opensearch", "log", "log-handler", "logging", "cloudwatch", "aws",
 classifiers = [ "Programming Language :: Python :: 3", "License :: OSI Approved :: MIT License", "Operating System :: OS Independent",]
 readme = "README.md"
 requires-python = ">=3.9"
-dependencies = [ "python-json-logger", "opensearch-py", "boto3",]
+dependencies = ["python-json-logger"]
+
+[project.optional-dependencies]
+cloudwatch = ["boto3"]
+opensearch = ["boto3", "opensearch-py"]
+
+
 [[project.authors]]
 name = "Andrey Sorokin"
 email = "andrey@sorokin.engineer"

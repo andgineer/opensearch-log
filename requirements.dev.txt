@@ -6,9 +6,7 @@ astroid==3.0.2
 babel==2.14.0
     # via mkdocs-material
 boto3==1.34.11
-    # via
-    #   moto
-    #   opensearch-log
+    # via moto
 botocore==1.34.11
     # via
     #   boto3
@@ -96,7 +94,7 @@ mkdocs-awesome-pages-plugin==2.9.2
 mkdocs-material==9.5.3
 mkdocs-material-extensions==1.3.1
     # via mkdocs-material
-moto==4.2.12
+moto==5.0.2
 mypy==1.8.0
 mypy-extensions==1.0.0
     # via mypy
@@ -105,7 +103,6 @@ natsort==8.4.0
 nodeenv==1.8.0
     # via pre-commit
 opensearch-py==2.4.2
-    # via opensearch-log
 packaging==23.2
     # via
     #   deprecation

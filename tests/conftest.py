@@ -7,8 +7,8 @@ from typing import Optional, Any, Dict, List, Tuple
 from unittest.mock import patch, MagicMock
 
 from opensearch_log import json_log
-from opensearch_log.cloudwatch_handler import  CloudwatchHandler
-from moto import mock_logs
+from opensearch_log.cloudwatch_handler import CloudwatchHandler
+from moto import mock_aws
 
 import boto3
 
@@ -17,10 +17,6 @@ from opensearch_log.base_handler import BaseHandler
 from opensearch_log.stdout_handler import StdoutHandler
 
 import pytest
-
-from opensearch_log.opensearch_handler import OpensearchHandler
-from opensearch_log.opensearch_serializer import OpenSearchSerializer
-import opensearchpy.exceptions
 
 
 @pytest.fixture(scope="function")
@@ -98,6 +94,8 @@ class MockOpenSearchClient:
 
     @property
     def transport(self):
+        from opensearch_log.opensearch_serializer import OpenSearchSerializer
+
         transport = MagicMock()
         transport.serializer = OpenSearchSerializer()
         return transport
@@ -129,6 +127,8 @@ class MockOpenSearchClient:
 
 @pytest.fixture(scope="function")
 def opensearch_handler():
+    from opensearch_log.opensearch_handler import OpensearchHandler
+
     json_log._logger = None
 
     with patch(
@@ -157,7 +157,7 @@ def cloudwatch_handler():
         'AWS_DEFAULT_REGION': 'us-west-2',
         'AWS_ACCESS_KEY_ID': 'testing',
         'AWS_SECRET_ACCESS_KEY': 'testing'
-    }), mock_logs():
+    }), mock_aws():
         # Create the log group and stream beforehand
         client = boto3.client("logs")
         client.create_log_group(logGroupName=log_group)
