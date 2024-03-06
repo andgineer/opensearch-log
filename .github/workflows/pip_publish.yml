@@ -14,7 +14,8 @@ permissions:
 
 jobs:
   publish:
-
+    env:
+      PRIMARY_PYTHON_VERSION: '3.11'
     runs-on: ubuntu-latest
 
     steps:
@@ -33,7 +34,7 @@ jobs:
     - name: Install build dependencies
       run: |
         python -m pip install --upgrade pip uv
-        uv pip install build --python=${{ matrix.python-version }}
+        uv pip install build --python=${{ env.PRIMARY_PYTHON_VERSION }}
 
     - name: Build package
       run: |

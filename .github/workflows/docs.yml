@@ -28,9 +28,7 @@ jobs:
           python-version: ${{ env.PRIMARY_PYTHON_VERSION  }}
       - run: |
           pip install uv
-          uv pip install -r requirements.dev.txt --python=${{ matrix.python-version }}
-          uv pip install ghp-import
-          uv pip install -e .
+          uv pip install ghp-import -r requirements.dev.txt --python=${{ env.PRIMARY_PYTHON_VERSION }}
       - run: ./scripts/build-docs.sh
       - run: |
           ghp-import --no-jekyll --push --force site
