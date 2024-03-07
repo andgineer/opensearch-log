@@ -1,3 +1,4 @@
+# (!) manually update dependencies and extras in the pyproject.toml file
 python-json-logger
 opensearch-py
 boto3
