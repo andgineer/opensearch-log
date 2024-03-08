@@ -41,18 +41,8 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
 
-    - name: Create and activate a virtual environment (Windows)
-      if: ${{ runner.os == 'Windows' }}
-      run: |
-        irm https://astral.sh/uv/install.ps1 | iex
-        uv venv .venv
-        "VIRTUAL_ENV=.venv" | Out-File -FilePath $env:GITHUB_ENV -Append
-        "$PWD/.venv/Scripts" | Out-File -FilePath $env:GITHUB_PATH -Append
-    - name: Create and activate a virtual environment (Unix)
-      if: ${{ runner.os != 'Windows' }}
-      run: curl -LsSf https://astral.sh/uv/install.sh | sh
-    - name: Install dependencies
-      run: uv pip install -r requirements.dev.txt --python=${{ matrix.python-version }}
+    - name: Create and activate a virtual environment
+      uses: actions/uv-venv@v0
 
     - name: tests without testcontainers
       if: ${{ matrix.python-version != env.PRIMARY_PYTHON_VERSION || matrix.platform != env.PRIMARY_PLATFORM }}
