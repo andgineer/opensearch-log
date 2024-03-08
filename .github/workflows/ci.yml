@@ -42,7 +42,7 @@ jobs:
         python-version: ${{ matrix.python-version }}
 
     - name: Create and activate a virtual environment
-      uses: actions/uv-venv@v0
+      uses: andgineer/uv-venv@v0
 
     - name: tests without testcontainers
       if: ${{ matrix.python-version != env.PRIMARY_PYTHON_VERSION || matrix.platform != env.PRIMARY_PLATFORM }}
