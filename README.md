@@ -11,7 +11,7 @@ With context manager or function decorator you can add additional fields to log 
 
 # Documentation
 
-[opensearch-log](https://andgineer.github.io/opensearch-log/en/)
+[opensearch-log](https://andgineer.github.io/opensearch-log/)
 
 # Developers
 
