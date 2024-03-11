@@ -9,7 +9,7 @@ rm -rf ${SITE_FOLDER}
 
 ./scripts/docstrings.sh
 
-for lang in bg de en es fr ru; do
+for lang in en ru; do
     scripts/docs-render-config.sh $lang
     mkdocs build --dirty --config-file docs/_mkdocs.yml
     rm docs/_mkdocs.yml
