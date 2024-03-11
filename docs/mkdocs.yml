@@ -7,13 +7,13 @@ site_author: Andrey Sorokin
 repo_name: opensearch_log
 repo_url: https://github.com/andgineer/opensearch-log
 edit_uri: edit/master/docs
-docs_dir: 'LANG_PLACEHOLDER'
-site_dir: '../site/SITE_PLACEHOLDER'
+docs_dir: 'LANGUAGE'
+site_dir: '../site/SITE_PREFIX'
 
 plugins:
   - awesome-pages
   - search:
-      lang: LANG_PLACEHOLDER
+      lang: LANGUAGE
 
 markdown_extensions:
   - abbr
