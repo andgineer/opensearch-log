@@ -29,7 +29,9 @@ pip install -e ".[cloudwatch,opensearch]"
 
 ### Отправка логов в OpenSearch
 
-Для отправки логов в OpenSearch используйте:
+Для отправки логов в OpenSearch используйте
+[get_logger()][opensearch_log.opensearch_handler.get_logger] из 
+[opensearch_handler][opensearch_log.opensearch_handler]:
 
 ```python
 from opensearch_log import Logging
@@ -65,7 +67,9 @@ with Logging(my_log_field="Из Python"):
 
 ### Отправка логов в AWS CloudWatch
 
-Для логирования в AWS CloudWatch используйте `get_logger` из `cloudwatch_handler`:
+Для логирования в AWS CloudWatch используйте 
+[get_logger()][opensearch_log.cloudwatch_handler.get_logger] из 
+[cloudwatch_handler][opensearch_log.cloudwatch_handler]:
 
 ```python
 from opensearch_log.cloudwatch_handler import get_logger
@@ -76,7 +80,8 @@ logger = get_logger(index_name="myindex", echo_stdout=True)
 ### JSON логирование в stdout
 
 Для приложений, требующих только JSON логирования без необходимости отправки логов в OpenSearch 
-или AWS CloudWatch, используйте `get_logger` из `stdout_handler`:
+или AWS CloudWatch, [get_logger()][opensearch_log.stdout_handler.get_logger] из 
+[stdout_handler][opensearch_log.stdout_handler]:
 
 ```python
 from opensearch_log.stdout_handler import get_logger

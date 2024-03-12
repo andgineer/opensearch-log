@@ -26,8 +26,11 @@ This function not only returns a customized logger but also configures the defau
 ensuring that subsequent calls to `logging.getLogger()` yield the same logger instance.
 
 ### Sending logs to OpenSearch
-
+For logging to OpenSearch, the setup involves the 
+[get_logger()][opensearch_log.opensearch_handler.get_logger] from 
+[opensearch_handler][opensearch_log.opensearch_handler]:
 ```python
+import opensearch_log.opensearch_handler
 from opensearch_log import Logging
 from opensearch_log.opensearch_handler import get_logger
 
@@ -58,7 +61,9 @@ Simultaneously, it will print the following on the terminal (output cleaned for 
 ```
 
 ### Sending logs to AWS CloudWatch
-For logging to AWS CloudWatch, the setup involves the `get_logger` function from `cloudwatch_handler`:
+For logging to AWS CloudWatch, the setup involves the 
+[get_logger()][opensearch_log.cloudwatch_handler.get_logger] from 
+[cloudwatch_handler][opensearch_log.cloudwatch_handler]:
 
 ```python
 from opensearch_log.cloudwatch_handler import get_logger
@@ -68,7 +73,9 @@ logger = get_logger(index_name="myindex", echo_stdout=True)
 
 ### JSON logging to stdout
 For applications requiring only JSON logging without the need to transmit logs to OpenSearch 
-or AWS CloudWatch, use `get_logger` from `stdout_handler`:
+or AWS CloudWatch, use 
+[get_logger()][opensearch_log.stdout_handler.get_logger] from 
+[stdout_handler][opensearch_log.stdout_handler]:
 
 ```python
 from opensearch_log.stdout_handler import get_logger

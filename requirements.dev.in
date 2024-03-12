@@ -14,7 +14,7 @@ pylint
 pydocstyle
 
 # docs
-lazydocs
+mkdocstrings[python]
 mkdocs-material
 pymdown-extensions
 mkdocs-awesome-pages-plugin
