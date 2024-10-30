@@ -1,4 +1,5 @@
 site
+.venv
 .mypy_cache
 **/api-reference/
 .idea/
