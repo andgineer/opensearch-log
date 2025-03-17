@@ -5,7 +5,7 @@ OpenSearch or AWS CloudWatch.
 
 It can also be used for local JSON logging to stdout.
 
-Utilizing a context manager or function decorator, additional fields can be seamlessly 
+Utilizing a context manager or function decorator, additional fields can be seamlessly
 added to log messages.
 
 ## Installation
@@ -19,15 +19,15 @@ For just JSON logging to stdout, no extras are required.
 
 
 ## Setup logger
-To configure the logger globally, utilize the appropriate `get_logger` function based on your 
-logging destination. 
+To configure the logger globally, utilize the appropriate `get_logger` function based on your
+logging destination.
 
-This function not only returns a customized logger but also configures the default logger, 
+This function not only returns a customized logger but also configures the default logger,
 ensuring that subsequent calls to `logging.getLogger()` yield the same logger instance.
 
 ### Sending logs to OpenSearch
-For logging to OpenSearch, the setup involves the 
-[get_logger()][opensearch_log.opensearch_handler.get_logger] from 
+For logging to OpenSearch, the setup involves the
+[get_logger()][opensearch_log.opensearch_handler.get_logger] from
 [opensearch_handler][opensearch_log.opensearch_handler]:
 ```python
 import opensearch_log.opensearch_handler
@@ -61,8 +61,8 @@ Simultaneously, it will print the following on the terminal (output cleaned for 
 ```
 
 ### Sending logs to AWS CloudWatch
-For logging to AWS CloudWatch, the setup involves the 
-[get_logger()][opensearch_log.cloudwatch_handler.get_logger] from 
+For logging to AWS CloudWatch, the setup involves the
+[get_logger()][opensearch_log.cloudwatch_handler.get_logger] from
 [cloudwatch_handler][opensearch_log.cloudwatch_handler]:
 
 ```python
@@ -72,9 +72,9 @@ logger = get_logger(index_name="myindex", echo_stdout=True)
 ```
 
 ### JSON logging to stdout
-For applications requiring only JSON logging without the need to transmit logs to OpenSearch 
-or AWS CloudWatch, use 
-[get_logger()][opensearch_log.stdout_handler.get_logger] from 
+For applications requiring only JSON logging without the need to transmit logs to OpenSearch
+or AWS CloudWatch, use
+[get_logger()][opensearch_log.stdout_handler.get_logger] from
 [stdout_handler][opensearch_log.stdout_handler]:
 
 ```python
@@ -83,9 +83,9 @@ from opensearch_log.stdout_handler import get_logger
 logger = get_logger(index_name="myindex", echo_stdout=True)
 ```
 
-## Adding fields to logs 
-Enhancing logs with additional fields can be accomplished using a function decorator, 
-context manager, or straightforward function calls. 
+## Adding fields to logs
+Enhancing logs with additional fields can be accomplished using a function decorator,
+context manager, or straightforward function calls.
 
 Once applied, these fields will be included in all emitted log messages.
 

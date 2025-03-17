@@ -18,42 +18,39 @@ def test_cloudwatch_logging_existing_group_and_stream(cloudwatch_handler):
     cloudwatch_handler.flush()
 
     # Check if CloudWatch put_log_events was called
-    client = boto3.client('logs')
-    response = client.get_log_events(
-        logGroupName='test-log-group',
-        logStreamName='test-log-stream'
-    )
-    messages = [event['message'] for event in response['events']]
+    client = boto3.client("logs")
+    response = client.get_log_events(logGroupName="test-log-group", logStreamName="test-log-stream")
+    messages = [event["message"] for event in response["events"]]
     assert test_message == json.loads(messages[0])["message"]
 
 
 def test_cloudwatch_emit(cloudwatch_handler):
-    message = 'Test log message'
+    message = "Test log message"
     record = MockLogRecord(
-        name='test_logger',
+        name="test_logger",
         level=logging.INFO,
-        filename='test.py',
+        filename="test.py",
         lineno=10,
         message=message,
         args=None,
-        exc_info=None
+        exc_info=None,
     )
 
     cloudwatch_handler.emit(record)
 
     assert len(cloudwatch_handler._buffer) == 1
-    assert cloudwatch_handler._buffer[0]['message'] == message
+    assert cloudwatch_handler._buffer[0]["message"] == message
 
 
 def test_cloudwatch_flush(cloudwatch_handler):
     record = MockLogRecord(
-        name='test_logger',
+        name="test_logger",
         level=logging.INFO,
-        filename='test.py',
+        filename="test.py",
         lineno=10,
-        message='Test log message',
+        message="Test log message",
         args=None,
-        exc_info=None
+        exc_info=None,
     )
 
     cloudwatch_handler.emit(record)
@@ -66,13 +63,13 @@ def test_cloudwatch_flush(cloudwatch_handler):
 
 def test_cloudwatch_close(cloudwatch_handler):
     record = MockLogRecord(
-        name='test_logger',
+        name="test_logger",
         level=logging.INFO,
-        filename='test.py',
+        filename="test.py",
         lineno=10,
-        message='Test log message',
+        message="Test log message",
         args=None,
-        exc_info=None
+        exc_info=None,
     )
 
     cloudwatch_handler.emit(record)
@@ -93,19 +90,18 @@ def test_cloudwatch_handler(cloudwatch_handler):
         cloudwatch_handler.flush()
 
         # Check if CloudWatch put_log_events was called
-        client = boto3.client('logs')
-        response = client.describe_log_streams(logGroupName='test-log-group')
+        client = boto3.client("logs")
+        response = client.describe_log_streams(logGroupName="test-log-group")
 
         # Check if the log stream exists and has stored events
-        assert len(response['logStreams']) > 0
-        assert 'firstEventTimestamp' in response['logStreams'][0]
+        assert len(response["logStreams"]) > 0
+        assert "firstEventTimestamp" in response["logStreams"][0]
 
         # Check if the specific message was logged
         response = client.get_log_events(
-            logGroupName='test-log-group',
-            logStreamName='test-log-stream'
+            logGroupName="test-log-group", logStreamName="test-log-stream"
         )
-        messages = [event['message'] for event in response['events']]
+        messages = [event["message"] for event in response["events"]]
         assert message == json.loads(messages[0])["message"]
 
 
@@ -138,4 +134,4 @@ def test_cloudwatch_logger_do_not_echo_stdout(cloudwatch_handler):
         logger.info("Test message")
 
         log_contents = logs.getvalue().strip()
-        assert log_contents == ''
+        assert log_contents == ""

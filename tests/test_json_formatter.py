@@ -81,7 +81,9 @@ def test_logger_output_json(log):
         log.info("Mock message")
 
         log_contents = logs.getvalue().strip()
-        log_data = json.loads(log_contents.split("\n")[0])  # pytest add handlers that duplicate log messages
+        log_data = json.loads(
+            log_contents.split("\n")[0]
+        )  # pytest add handlers that duplicate log messages
 
         assert log_data["message"] == "Mock message"
         assert log_data["application"] == "-mock-application-"
@@ -92,7 +94,9 @@ def test_default_logger_is_changed(log):
         log.info("Mock message2")
 
         log_contents = logs.getvalue().strip()
-        log_data = json.loads(log_contents.split("\n")[0])  # pytest add handlers that duplicate log messages
+        log_data = json.loads(
+            log_contents.split("\n")[0]
+        )  # pytest add handlers that duplicate log messages
 
         assert log_data["message"] == "Mock message2"
         assert log_data["application"] == "-mock-application-"
@@ -106,7 +110,9 @@ def test_get_logger_reinit(log):
         log.info("Reinited.")
 
         log_contents = logs.getvalue().strip()
-        log_data = json.loads(log_contents.split("\n")[0])  # pytest add handlers that duplicate log messages
+        log_data = json.loads(
+            log_contents.split("\n")[0]
+        )  # pytest add handlers that duplicate log messages
 
         assert log_data["message"] == "Reinited."
         assert log_data["application"] == "AnotherComponent"

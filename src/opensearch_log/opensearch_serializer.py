@@ -7,7 +7,7 @@ try:
 except ImportError as e:
     raise ImportError(
         "To use OpensearchHandler please install with this feature: "
-        "`pip install opensearch-log[opensearch]`."
+        "`pip install opensearch-log[opensearch]`.",
     ) from e
 
 

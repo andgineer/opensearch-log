@@ -15,7 +15,7 @@ class StdoutHandler(BaseHandler):
         """Initialize the handler."""
         super().__init__()
 
-    def send_message(self, message: Optional[str], record: logging.LogRecord) -> None:
+    def send_message(self, message: Optional[str], record: logging.LogRecord) -> None:  # noqa: ARG002
         """Send the log message to stdout."""
         print(message)
 

@@ -4,7 +4,7 @@ import contextlib
 import logging
 import time
 from threading import Lock, Timer
-from typing import Any, Dict, List, Optional
+from typing import Any, Optional
 
 try:
     import boto3
@@ -13,7 +13,7 @@ try:
 except ImportError as e:
     raise ImportError(
         "To use CloudwatchHandler please install with this feature: "
-        "`pip install opensearch-log[cloudwatch]`."
+        "`pip install opensearch-log[cloudwatch]`.",
     ) from e
 
 from opensearch_log import json_log
@@ -36,7 +36,7 @@ class CloudwatchHandler(BaseHandler):  # pylint: disable=too-many-instance-attri
         self.log_stream = log_stream
         self.buffer_size = BUFFER_SIZE
         self.flush_seconds = FLUSH_SECONDS
-        self._buffer: List[Dict[str, Any]] = []
+        self._buffer: list[dict[str, Any]] = []
         self._buffer_lock: Lock = Lock()
         self._timer: Optional[Timer] = None
 
@@ -47,7 +47,8 @@ class CloudwatchHandler(BaseHandler):  # pylint: disable=too-many-instance-attri
         """Create the log stream if it doesn't already exist."""
         with contextlib.suppress(self.log_client.exceptions.ResourceAlreadyExistsException):
             self.log_client.create_log_stream(
-                logGroupName=self.log_group, logStreamName=self.log_stream
+                logGroupName=self.log_group,
+                logStreamName=self.log_stream,
             )
 
     def _initialize_log_group(self) -> None:
@@ -80,7 +81,7 @@ class CloudwatchHandler(BaseHandler):  # pylint: disable=too-many-instance-attri
             self._log_client = boto3.client("logs")
         return self._log_client
 
-    def send_message(self, message: Optional[str], record: logging.LogRecord) -> None:
+    def send_message(self, message: Optional[str], record: logging.LogRecord) -> None:  # noqa: ARG002
         """Buffer the log message and flush if necessary."""
         timestamp = int(round(time.time() * 1000))
         log_event = {"timestamp": timestamp, "message": message}

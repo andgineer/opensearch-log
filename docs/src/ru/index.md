@@ -1,11 +1,11 @@
 # opensearch-log
 
-`opensearch-log` - это Python log handler, предназначенный для прямой и эффективной передачи логов в 
+`opensearch-log` - это Python log handler, предназначенный для прямой и эффективной передачи логов в
 OpenSearch или AWS CloudWatch.
 
 Также он может быть использован для JSON логирования в stdout.
 
-Используя контекстный менеджер или декоратор, можно легко добавить дополнительные поля к сообщениям 
+Используя контекстный менеджер или декоратор, можно легко добавить дополнительные поля к сообщениям
 логов.
 
 ## Установка
@@ -21,16 +21,16 @@ pip install -e ".[cloudwatch,opensearch]"
 
 ## Настройка логгера
 
-Для глобальной конфигурации логгера используйте соответствующую функцию `get_logger` в зависимости 
-от того, куда вы собираетесь отправлять логи. 
+Для глобальной конфигурации логгера используйте соответствующую функцию `get_logger` в зависимости
+от того, куда вы собираетесь отправлять логи.
 
-Эта функция не только возвращает настроенный логгер, но и конфигурирует логгер по умолчанию, 
+Эта функция не только возвращает настроенный логгер, но и конфигурирует логгер по умолчанию,
 гарантируя, что последующие вызовы `logging.getLogger()` вернут тот же экземпляр логгера.
 
 ### Отправка логов в OpenSearch
 
 Для отправки логов в OpenSearch используйте
-[get_logger()][opensearch_log.opensearch_handler.get_logger] из 
+[get_logger()][opensearch_log.opensearch_handler.get_logger] из
 [opensearch_handler][opensearch_log.opensearch_handler]:
 
 ```python
@@ -67,8 +67,8 @@ with Logging(my_log_field="Из Python"):
 
 ### Отправка логов в AWS CloudWatch
 
-Для логирования в AWS CloudWatch используйте 
-[get_logger()][opensearch_log.cloudwatch_handler.get_logger] из 
+Для логирования в AWS CloudWatch используйте
+[get_logger()][opensearch_log.cloudwatch_handler.get_logger] из
 [cloudwatch_handler][opensearch_log.cloudwatch_handler]:
 
 ```python
@@ -79,8 +79,8 @@ logger = get_logger(index_name="myindex", echo_stdout=True)
 
 ### JSON логирование в stdout
 
-Для приложений, требующих только JSON логирования без необходимости отправки логов в OpenSearch 
-или AWS CloudWatch, [get_logger()][opensearch_log.stdout_handler.get_logger] из 
+Для приложений, требующих только JSON логирования без необходимости отправки логов в OpenSearch
+или AWS CloudWatch, [get_logger()][opensearch_log.stdout_handler.get_logger] из
 [stdout_handler][opensearch_log.stdout_handler]:
 
 ```python
@@ -91,8 +91,8 @@ logger = get_logger(index_name="myindex", echo_stdout=True)
 
 ## Добавление полей к логам
 
-Дополнение логов полями может быть достигнуто с использованием декоратора, контекстного менеджера 
-или простых вызовов функций. 
+Дополнение логов полями может быть достигнуто с использованием декоратора, контекстного менеджера
+или простых вызовов функций.
 
 После этого поля будут добавлены во все сообщения логов.
 

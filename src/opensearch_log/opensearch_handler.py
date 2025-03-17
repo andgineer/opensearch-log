@@ -5,7 +5,7 @@ import traceback
 from datetime import datetime, timezone
 from enum import Enum
 from threading import Lock, Timer
-from typing import Any, Dict, List, Optional, Union
+from typing import Any, Optional, Union
 
 import boto3
 
@@ -14,7 +14,7 @@ try:
 except ImportError as e:
     raise ImportError(
         "To use OpensearchHandler please install with this feature: "
-        "`pip install opensearch-log[opensearch]`."
+        "`pip install opensearch-log[opensearch]`.",
     ) from e
 
 from opensearch_log import json_log
@@ -53,7 +53,7 @@ class OpensearchHandler(BaseHandler):  # pylint: disable=too-many-instance-attri
     DAILY = IndexRotation.DAILY
     MONTHLY = IndexRotation.MONTHLY
 
-    def __init__(  # pylint: disable=too-many-arguments
+    def __init__(  # noqa: PLR0913
         self,
         *args: Any,
         opensearch_host: str = DEFAULT_OPENSEARCH_HOST,
@@ -80,7 +80,7 @@ class OpensearchHandler(BaseHandler):  # pylint: disable=too-many-instance-attri
 
         # Internals
         self._client: Optional[OpenSearch] = None
-        self._buffer: List[Dict[str, Any]] = []
+        self._buffer: list[dict[str, Any]] = []
         self._buffer_lock: Lock = Lock()
         self._timer: Optional[Timer] = None
 
@@ -93,7 +93,7 @@ class OpensearchHandler(BaseHandler):  # pylint: disable=too-many-instance-attri
         """Emit a logging record in a processed format."""
         self.send_message(None, record)
 
-    def send_message(self, message: Optional[str], record: logging.LogRecord) -> None:
+    def send_message(self, message: Optional[str], record: logging.LogRecord) -> None:  # noqa: ARG002
         """Send the log message to OpenSearch."""
         doc = self._convert_log_record_to_opensearch_doc(record)
         with self._buffer_lock:
@@ -128,7 +128,7 @@ class OpensearchHandler(BaseHandler):  # pylint: disable=too-many-instance-attri
 
         if self._get_opensearch_client() is None:
             print(
-                "Mock MODE: would NOT send to OpenSearch"
+                "Mock MODE: would NOT send to OpenSearch",
             )  # do not use logger here, to avoid recursion
         else:
             for i in range(0, len(actions), BULK_SIZE):
@@ -141,13 +141,13 @@ class OpensearchHandler(BaseHandler):  # pylint: disable=too-many-instance-attri
                             stats_only=True,
                         )
                         break
-                    except Exception as exception:  # pylint: disable=broad-except
+                    except Exception as exception:  # noqa: BLE001
                         retries += 1  # Increment retry count
                         print(f"Retry {retries}: Could not send logs to OpenSearch: {exception}")
                         if retries >= RETRY_NUM:
                             print("Exhausted retries. Lost logs:\n", logs_buffer)
                             print(
-                                f"\n-- opensearch.bulk() --\n{traceback.format_exc()}-- end --\n"
+                                f"\n-- opensearch.bulk() --\n{traceback.format_exc()}-- end --\n",
                             )
 
     def close(self) -> None:
@@ -162,7 +162,7 @@ class OpensearchHandler(BaseHandler):  # pylint: disable=too-many-instance-attri
             if region is None:
                 raise ValueError(
                     "AWS region is not set.\n"
-                    "Please set the AWS_REGION environment variable or `region=` in AWS config."
+                    "Please set the AWS_REGION environment variable or `region=` in AWS config.",
                 )
             awsauth = AWSV4SignerAuth(credentials, region, "es")
             verify = self.opensearch_host.startswith("https")
@@ -187,19 +187,19 @@ class OpensearchHandler(BaseHandler):  # pylint: disable=too-many-instance-attri
             self._timer.start()
 
     def _get_index_name(self) -> str:
-        if IndexRotation.DAILY == self.index_rotate:
+        if self.index_rotate == IndexRotation.DAILY:
             return self._get_index_name_daily()
-        if IndexRotation.MONTHLY == self.index_rotate:
+        if self.index_rotate == IndexRotation.MONTHLY:
             return self._get_index_name_monthly()
         raise ValueError(f"Unknown index rotation: {self.index_rotate}")
 
-    def _convert_log_record_to_opensearch_doc(self, record: logging.LogRecord) -> Dict[str, Any]:
+    def _convert_log_record_to_opensearch_doc(self, record: logging.LogRecord) -> dict[str, Any]:
         """Convert logging.LogRecord to OpenSearch doc."""
         print(f"record: {record.msg}, {record.__dict__}")
         log_record_dict = record.__dict__.copy()
         doc = {
             "@timestamp": self._get_opensearch_datetime_str(
-                datetime.now(timezone.utc).timestamp()
+                datetime.now(timezone.utc).timestamp(),
             ),
         }
         for key, value in log_record_dict.items():
@@ -225,7 +225,7 @@ class OpensearchHandler(BaseHandler):  # pylint: disable=too-many-instance-attri
         return f"{datetime_utc.strftime(fmt)}.{int(datetime_utc.microsecond / 1000):03d}Z"
 
 
-def get_logger(  # pylint: disable=too-many-arguments
+def get_logger(  # noqa: PLR0913
     *args: Any,
     opensearch_host: str = DEFAULT_OPENSEARCH_HOST,
     index_name: str = DEFAULT_INDEX_NAME,
@@ -258,11 +258,11 @@ def get_logger(  # pylint: disable=too-many-arguments
 def restore_logger() -> None:
     """Flush and remove all handlers."""
     logging.shutdown()
-    assert json_log._logger is not None  # pylint: disable=protected-access
-    for handler in json_log._logger.handlers.copy():  # pylint: disable=protected-access
+    assert json_log._logger is not None  # noqa: SLF001
+    for handler in json_log._logger.handlers.copy():  # noqa: SLF001
         if isinstance(handler, OpensearchHandler):
-            json_log._logger.removeHandler(handler)  # pylint: disable=protected-access
-    json_log._logger = None  # pylint: disable=protected-access
+            json_log._logger.removeHandler(handler)  # noqa: SLF001
+    json_log._logger = None  # noqa: SLF001
 
 
 if __name__ == "__main__":

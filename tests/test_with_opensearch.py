@@ -1,4 +1,3 @@
-import logging
 import os
 from unittest.mock import patch
 
@@ -20,18 +19,23 @@ INDEX_NAME = "myindex"
 
 @pytest.fixture(autouse=True)
 def mock_aws_creds():
-    with patch.dict(os.environ, {
-        'AWS_DEFAULT_REGION': 'eu-west-1',
-        'AWS_ACCESS_KEY_ID': 'access-key-id',
-        'AWS_SECRET_ACCESS_KEY': 'secret-access-key',
-    }):
+    with patch.dict(
+        os.environ,
+        {
+            "AWS_DEFAULT_REGION": "eu-west-1",
+            "AWS_ACCESS_KEY_ID": "access-key-id",
+            "AWS_SECRET_ACCESS_KEY": "secret-access-key",
+        },
+    ):
         yield
 
 
 @pytest.fixture(scope="module")
 def opensearch_container():
     # Spin up an Elasticsearch container using testcontainers
-    with ElasticSearchContainer("docker.elastic.co/elasticsearch/elasticsearch:7.15.2") as es_container:
+    with ElasticSearchContainer(
+        "docker.elastic.co/elasticsearch/elasticsearch:7.15.2"
+    ) as es_container:
         yield es_container
 
 
@@ -40,7 +44,8 @@ def opensearch_handler(opensearch_container, mock_aws_creds):
     # Get the Elasticsearch container's IP address and port
     es_ip = opensearch_container.get_container_host_ip()
     es_port = opensearch_container.get_docker_client().port(  # to work inside CI Docker
-        opensearch_container._container.id, 9200  # pylint: disable=protected-access
+        opensearch_container._container.id,
+        9200,  # noqa: SLF001
     )
 
     # Check if the Elasticsearch container is ready
@@ -84,4 +89,3 @@ def test_wth_opensearch(opensearch_handler):
     assert response.status_code == 200
     response_data = response.json()
     assert response_data["hits"]["total"]["value"] == 1
-

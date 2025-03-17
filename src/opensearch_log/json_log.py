@@ -4,16 +4,17 @@ import contextvars
 import logging
 import sys
 from functools import wraps
-from typing import Any, Dict, List, Optional, Type
+from typing import Any, Optional
 
 from pythonjsonlogger import jsonlogger
 
 from opensearch_log.base_handler import BaseHandler
 
 _logger: Optional[logging.Logger] = None
-_logger_params: Optional[Dict[str, Optional[str]]] = None
-_log_fields: contextvars.ContextVar[dict[str, object]] = contextvars.ContextVar(
-    "log_fields", default={}
+_logger_params: Optional[dict[str, Optional[str]]] = None
+_log_fields: contextvars.ContextVar[dict[str, object] | None] = contextvars.ContextVar(
+    "log_fields",
+    default=None,
 )
 
 
@@ -33,7 +34,9 @@ def set_record_factory() -> None:
 
 
 def create_logger(
-    log_handler_instance: BaseHandler, level: int, clear_handlers: bool = False
+    log_handler_instance: BaseHandler,
+    level: int,
+    clear_handlers: bool = False,
 ) -> logging.Logger:
     """Create a logger that stream logs in JSON format with additional fields."""
     result = logging.getLogger()
@@ -54,14 +57,14 @@ def get_json_formatter() -> jsonlogger.JsonFormatter:
     )
 
 
-def replace_logger_fields(fields_to_log: Dict[str, Any]) -> None:
+def replace_logger_fields(fields_to_log: dict[str, Any]) -> None:
     """Update logger with new fields to log."""
-    global _logger_params  # pylint: disable=global-statement
-    if _logger_params == fields_to_log or (fields_to_log["application"] is None is None):
+    global _logger_params  # noqa: PLW0603
+    if _logger_params == fields_to_log or (fields_to_log["application"] is None):
         return
-    assert (
-        _logger_params is not None
-    ), "The method should be called only if the logger have been created before"
+    assert _logger_params is not None, (
+        "The method should be called only if the logger have been created before"
+    )
     remove_log_fields(*_logger_params.keys())
     add_log_fields(**fields_to_log)
     _logger_params = fields_to_log
@@ -74,20 +77,22 @@ def remove_handlers(_logger: logging.Logger) -> None:
             _logger.removeHandler(handler)
 
 
-def add_log_fields(**values: Any) -> List[str]:
+def add_log_fields(**values: Any) -> list[str]:
     """Include fields to all log records."""
     current_fields = _log_fields.get()
+    if current_fields is None:
+        current_fields = {}
+        _log_fields.set(current_fields)
     current_fields.update(values)
-    _log_fields.set(current_fields)
     return list(values.keys())
 
 
 def remove_log_fields(*fields: str) -> None:
     """Remove logged fields."""
     current_fields = _log_fields.get()
-    for key in fields:
-        current_fields.pop(key, None)
-    _log_fields.set(current_fields)
+    if current_fields is not None:
+        for key in fields:
+            current_fields.pop(key, None)
 
 
 class Logging:
@@ -96,7 +101,7 @@ class Logging:
     def __init__(self, **values: Any) -> None:
         """Initialize the context manager with fields to add to log records."""
         self.values = values
-        self.added_fields: List[str] = []
+        self.added_fields: list[str] = []
 
     def __enter__(self) -> "Logging":
         """Enter the context: add fields to log records."""
@@ -105,7 +110,7 @@ class Logging:
 
     def __exit__(
         self,
-        exc_type: Optional[Type[BaseException]],
+        exc_type: Optional[type[BaseException]],
         exc_value: Optional[BaseException],
         traceback: Optional[Any],
     ) -> None:
@@ -139,7 +144,7 @@ def get_logger(
     **values: Any,
 ) -> logging.Logger:
     """Get a JSON logger."""
-    global _logger, _logger_params  # pylint: disable=global-statement
+    global _logger, _logger_params  # noqa: PLW0603
 
     if _logger is not None:
         replace_logger_fields({"application": application, **values})
@@ -147,7 +152,9 @@ def get_logger(
 
     _logger_params = {"application": application, **values}
     _logger = create_logger(
-        log_handler_instance=log_handler, level=level, clear_handlers=clear_handlers
+        log_handler_instance=log_handler,
+        level=level,
+        clear_handlers=clear_handlers,
     )
     add_log_fields(**_logger_params)
     set_record_factory()
