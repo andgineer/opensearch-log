@@ -12,7 +12,7 @@ from opensearch_log.base_handler import BaseHandler
 
 _logger: Optional[logging.Logger] = None
 _logger_params: Optional[dict[str, Optional[str]]] = None
-_log_fields: contextvars.ContextVar[dict[str, object] | None] = contextvars.ContextVar(
+_log_fields: contextvars.ContextVar[Optional[dict[str, object]]] = contextvars.ContextVar(
     "log_fields",
     default=None,
 )
