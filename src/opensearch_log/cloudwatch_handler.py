@@ -157,3 +157,8 @@ def get_logger(
     if echo_stdout:
         add_stdout_json_handler(logger)
     return logger
+
+
+def remove_logger() -> None:
+    """Flush and remove all handlers from the global logger."""
+    json_log.remove_logger()

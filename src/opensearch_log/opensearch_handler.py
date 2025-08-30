@@ -257,12 +257,12 @@ def get_logger(  # noqa: PLR0913
 
 def restore_logger() -> None:
     """Flush and remove all handlers."""
-    logging.shutdown()
-    assert json_log._logger is not None  # noqa: SLF001
-    for handler in json_log._logger.handlers.copy():  # noqa: SLF001
-        if isinstance(handler, OpensearchHandler):
-            json_log._logger.removeHandler(handler)  # noqa: SLF001
-    json_log._logger = None  # noqa: SLF001
+    json_log.remove_logger()
+
+
+def remove_logger() -> None:
+    """Flush and remove all handlers from the global logger."""
+    json_log.remove_logger()
 
 
 if __name__ == "__main__":

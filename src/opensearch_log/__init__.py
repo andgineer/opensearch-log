@@ -2,9 +2,15 @@
 
 import logging
 
-from opensearch_log.json_log import Logging, add_log_fields, log_fields, remove_log_fields
+from opensearch_log.json_log import (
+    Logging,
+    add_log_fields,
+    log_fields,
+    remove_log_fields,
+    remove_logger,
+)
 
-__all__ = ["Logging", "add_log_fields", "log_fields", "remove_log_fields"]
+__all__ = ["Logging", "add_log_fields", "log_fields", "remove_log_fields", "remove_logger"]
 
 urllib3_logger = logging.getLogger("opensearch")
 urllib3_logger.setLevel(logging.WARNING)

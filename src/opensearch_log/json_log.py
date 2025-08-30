@@ -159,3 +159,17 @@ def get_logger(
     add_log_fields(**_logger_params)
     set_record_factory()
     return _logger
+
+
+def remove_logger() -> None:
+    """Flush and remove all handlers from the global logger."""
+    global _logger, _logger_params  # noqa: PLW0603
+
+    if _logger is not None:
+        logging.shutdown()
+        for handler in _logger.handlers.copy():
+            if hasattr(handler, "flush"):
+                handler.flush()
+            _logger.removeHandler(handler)
+        _logger = None
+        _logger_params = None
