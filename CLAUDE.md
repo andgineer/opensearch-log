@@ -4,30 +4,32 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Development Setup
 
-Run `. ./activate.sh` to set up the development environment. This creates a Python virtual environment using uv and installs dependencies.
+Run `source ./activate.sh` to set up the development environment. This creates a Python virtual environment using uv and installs dependencies.
+
+**IMPORTANT**: Always activate the virtual environment before running any commands. Use `source ./activate.sh` before each command.
 
 ## Common Commands
 
 ### Development
-- `make help` - Show all available make targets
-- `make reqs` - Upgrade requirements including pre-commit hooks
-- `uv pip install -r requirements.dev.txt` - Install development dependencies
+- `source ./activate.sh && make help` - Show all available make targets
+- `source ./activate.sh && make reqs` - Upgrade requirements including pre-commit hooks
+- `source ./activate.sh && uv pip install -r requirements.dev.txt` - Install development dependencies
 
 ### Testing
-- `source activate.sh && python -m pytest` - Run all tests with doctest modules enabled
-- `python -m pytest -m docker` - Run tests that require Docker (testcontainers)
-- `python -m pytest -m opensearch` - Run tests that use OpenSearch
+- `source ./activate.sh && python -m pytest` - Run all tests with doctest modules enabled
+- `source ./activate.sh && python -m pytest -m docker` - Run tests that require Docker (testcontainers)
+- `source ./activate.sh && python -m pytest -m opensearch` - Run tests that use OpenSearch
 
 **Note**: Always use `python -m pytest` instead of just `pytest` to ensure proper Python path setup for imports.
 
 ### Linting and Formatting
-- `source activate.sh && pre-commit run --all-files` - Run all pre-commit hooks (includes ruff and mypy)
+- `source ./activate.sh && pre-commit run --all-files` - Run all pre-commit hooks (includes ruff and mypy)
 
-**Note**: Always activate the virtual environment with `source activate.sh` before running pre-commit hooks to ensure proper tool versions.
+**IMPORTANT**: Always use `pre-commit run --all-files` for code quality checks. Never run ruff or mypy directly.
 
 ### Documentation
-- `make docs` - Preview English documentation
-- `make docs-ru` - Preview Russian documentation
+- `source ./activate.sh && make docs` - Preview English documentation
+- `source ./activate.sh && make docs-ru` - Preview Russian documentation
 
 ## Architecture
 

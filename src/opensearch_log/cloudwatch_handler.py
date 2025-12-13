@@ -4,7 +4,12 @@ import contextlib
 import logging
 import time
 from threading import Lock, Timer
-from typing import Any, Optional
+from typing import TYPE_CHECKING, Any, Optional
+
+if TYPE_CHECKING:
+    from mypy_boto3_logs import CloudWatchLogsClient
+else:
+    CloudWatchLogsClient = Any
 
 try:
     import boto3
@@ -71,7 +76,7 @@ class CloudwatchHandler(BaseHandler):  # pylint: disable=too-many-instance-attri
                 raise
 
     @property
-    def log_client(self) -> boto3.client:
+    def log_client(self) -> CloudWatchLogsClient:
         """Get the boto3 client for CloudWatch logs."""
         if self._log_client is None:
             # Disable boto's built-in logging to avoid recursion

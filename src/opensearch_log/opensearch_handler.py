@@ -220,7 +220,7 @@ class OpensearchHandler(BaseHandler):  # pylint: disable=too-many-instance-attri
 
     @staticmethod
     def _get_opensearch_datetime_str(timestamp: float) -> str:
-        datetime_utc = datetime.utcfromtimestamp(timestamp)
+        datetime_utc = datetime.fromtimestamp(timestamp, tz=timezone.utc)
         fmt = "%Y-%m-%dT%H:%M:%S"
         return f"{datetime_utc.strftime(fmt)}.{int(datetime_utc.microsecond / 1000):03d}Z"
 

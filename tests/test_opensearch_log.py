@@ -112,7 +112,8 @@ def test_get_opensearch_datetime_str(opensearch_handler):
     timestamp = 1634616000.123  # October 19, 2021, 12:00:00.123 UTC
 
     # Calculate the expected UTC datetime based on the timestamp
-    expected_datetime = datetime.utcfromtimestamp(timestamp)
+    # Use timezone-aware datetime and convert to naive for comparison
+    expected_datetime = datetime.fromtimestamp(timestamp, tz=timezone.utc).replace(tzinfo=None)
 
     # Get the datetime_str from the method
     datetime_str = opensearch_handler._get_opensearch_datetime_str(timestamp)

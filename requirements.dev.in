@@ -9,7 +9,7 @@ coveralls
 
 # lint
 pre-commit
-mypy
+pyrefly
 pylint
 pydocstyle
 
