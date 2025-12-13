@@ -2,6 +2,13 @@
 VERSION := $(shell grep '__version__' src/opensearch_log/__about__.py | cut -d '"' -f2)
 export VERSION
 
+# If the first argument is "docs" treat additional "targets" as parameters
+ifeq (docs,$(firstword $(MAKECMDGOALS)))
+  DOCS_LANGUAGE := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
+  # turn the parameters into do-nothing targets
+  $(eval $(DOCS_LANGUAGE):;@:)
+endif
+
 .HELP: version ## Show the current version
 version:
 	echo ${VERSION}
@@ -25,18 +32,16 @@ reqs:
 	uv pip install -r requirements.dev.txt
 
 .PHONY: docs # mark as phony so it always runs even we have a docs folder
-.HELP: docs  ## Docs preview English
+.HELP: docs  ## Docs preview for the language specified (bg de en es fr ru), like "make docs ru", by default build for English
 docs:
 	./scripts/docstrings.sh
-	open -a "Google Chrome" http://127.0.0.1:8000/opensearch-log/
-	scripts/docs-render-config.sh en
-	mkdocs serve -f docs/_mkdocs.yml
-
-.HELP: docs-ru  ## Docs preview Russian
-docs-ru:
-	./scripts/docstrings.sh
-	open -a "Google Chrome" http://127.0.0.1:8000/opensearch-log/
-	scripts/docs-render-config.sh ru
+	@LANG="$(if $(DOCS_LANGUAGE),$(DOCS_LANGUAGE),en)"; \
+	bash ./scripts/docs-render-config.sh "$$LANG"; \
+	if [ "$$LANG" != "en" ]; then \
+		cp -r ./docs/src/en/images/ ./docs/src/$$LANG/images/ 2>/dev/null || true; \
+		cp ./docs/src/en/reference.md ./docs/src/$$LANG/reference.md; \
+	fi; \
+	(sleep 2 && open -a "Google Chrome" http://127.0.0.1:8000/) & \
 	mkdocs serve -f docs/_mkdocs.yml
 
 .HELP: help  ## Display this message

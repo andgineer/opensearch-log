@@ -65,3 +65,7 @@ extra:
     - name: Русский
       link: /opensearch-log/ru/
       lang: ru
+
+nav:
+  - index.md
+  - reference.md
