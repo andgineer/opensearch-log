@@ -6,12 +6,12 @@
 |---------------------------------------------- | -------: | -------: | ------: | --------: |
 | src/opensearch\_log/\_\_about\_\_.py          |        1 |        1 |      0% |         1 |
 | src/opensearch\_log/base\_handler.py          |        8 |        1 |     88% |        18 |
-| src/opensearch\_log/cloudwatch\_handler.py    |       92 |       17 |     82% |18-19, 72-76, 98, 128-132, 156-164, 169 |
+| src/opensearch\_log/cloudwatch\_handler.py    |       93 |       17 |     82% |20-21, 74-78, 100, 130-134, 158-166, 171 |
 | src/opensearch\_log/json\_log.py              |       91 |        0 |    100% |           |
 | src/opensearch\_log/opensearch\_handler.py    |      146 |       22 |     85% |14-15, 73, 90, 110, 130, 148-149, 163, 178, 194, 240-255, 265, 269-275 |
 | src/opensearch\_log/opensearch\_serializer.py |       11 |        2 |     82% |       7-8 |
 | src/opensearch\_log/stdout\_handler.py        |       16 |        0 |    100% |           |
-|                                     **TOTAL** |  **365** |   **43** | **88%** |           |
+| **TOTAL**                                     |  **366** |   **43** | **88%** |           |
 
 
 ## Setup coverage badge
