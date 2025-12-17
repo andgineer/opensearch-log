@@ -62,7 +62,7 @@ repos:
         name: pyrefly check
         language: system
         args: [
-          "--ignore=missing-import",
-          "--ignore=missing-source-for-stubs",
+#          "--ignore=missing-import",
+#          "--ignore=missing-source-for-stubs",
           "--project-excludes=tests"
         ]

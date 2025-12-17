@@ -10,8 +10,8 @@ coveralls
 # lint
 pre-commit
 pyrefly
-pylint
 pydocstyle
+boto3-stubs[logs]
 
 # docs
 mkdocstrings[python]

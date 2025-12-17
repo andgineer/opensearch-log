@@ -8,8 +8,10 @@ from typing import TYPE_CHECKING, Any, Optional
 
 if TYPE_CHECKING:
     from mypy_boto3_logs import CloudWatchLogsClient
+    from mypy_boto3_logs.type_defs import InputLogEventTypeDef
 else:
     CloudWatchLogsClient = Any
+    InputLogEventTypeDef = dict[str, Any]  # type: ignore[misc]
 
 try:
     import boto3
@@ -41,7 +43,7 @@ class CloudwatchHandler(BaseHandler):  # pylint: disable=too-many-instance-attri
         self.log_stream = log_stream
         self.buffer_size = BUFFER_SIZE
         self.flush_seconds = FLUSH_SECONDS
-        self._buffer: list[dict[str, Any]] = []
+        self._buffer: list[InputLogEventTypeDef] = []
         self._buffer_lock: Lock = Lock()
         self._timer: Optional[Timer] = None
 
@@ -89,7 +91,7 @@ class CloudwatchHandler(BaseHandler):  # pylint: disable=too-many-instance-attri
     def send_message(self, message: Optional[str], record: logging.LogRecord) -> None:  # noqa: ARG002
         """Buffer the log message and flush if necessary."""
         timestamp = int(round(time.time() * 1000))
-        log_event = {"timestamp": timestamp, "message": message}
+        log_event: InputLogEventTypeDef = {"timestamp": timestamp, "message": message or ""}
 
         with self._buffer_lock:
             self._buffer.append(log_event)
