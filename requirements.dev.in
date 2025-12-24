@@ -18,6 +18,7 @@ mkdocstrings[python]
 mkdocs-material
 pymdown-extensions
 mkdocs-awesome-pages-plugin
+black
 
 # build & reqs management
 -e .

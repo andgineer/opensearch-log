@@ -35,11 +35,7 @@ reqs:
 .HELP: docs  ## Docs preview for the language specified (bg de en es fr ru), like "make docs ru", by default build for English
 docs:
 	@LANG="$(if $(DOCS_LANGUAGE),$(DOCS_LANGUAGE),en)"; \
-	bash ./scripts/docs-render-config.sh "$$LANG"; \
-	if [ "$$LANG" != "en" ]; then \
-		cp -r ./docs/src/en/images/ ./docs/src/$$LANG/images/ 2>/dev/null || true; \
-		cp ./docs/src/en/reference.md ./docs/src/$$LANG/reference.md; \
-	fi; \
+	bash ./scripts/build-docs.sh --copy-assets "$$LANG"; \
 	(sleep 2 && open -a "Google Chrome" http://127.0.0.1:8000/) & \
 	mkdocs serve -f docs/_mkdocs.yml
 
