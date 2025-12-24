@@ -1,0 +1,3145 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Andrey Sorokin">
+      
+      
+        <link rel="canonical" href="https://andgineer.github.io/opensearch-log/reference/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
+    
+    
+      
+        <title>Reference - opensearch_log</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.50c56a3b.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#opensearch_log" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="opensearch_log" class="md-header__button md-logo" aria-label="opensearch_log" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            opensearch_log
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Reference
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="/opensearch-log/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/opensearch-log/ru/" hreflang="ru" class="md-select__link">
+              Русский
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/andgineer/opensearch-log" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    opensearch_log
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="opensearch_log" class="md-nav__button md-logo" aria-label="opensearch_log" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    opensearch_log
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/andgineer/opensearch-log" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    opensearch_log
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    opensearch-log
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Reference
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Reference
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#opensearch_log" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-module"></code>&nbsp;opensearch_log
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label=" opensearch_log">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attributes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Attributes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.urllib3_logger" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-attribute"></code>&nbsp;urllib3_logger
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Classes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.Logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-class"></code>&nbsp;Logging
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label=" Logging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.Logging-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attributes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Attributes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.Logging.added_fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-attribute"></code>&nbsp;added_fields
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.Logging.values" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-attribute"></code>&nbsp;values
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.add_log_fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-function"></code>&nbsp;add_log_fields
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.log_fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-function"></code>&nbsp;log_fields
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.remove_log_fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-function"></code>&nbsp;remove_log_fields
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.remove_logger" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-function"></code>&nbsp;remove_logger
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modules
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.base_handler" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-module"></code>&nbsp;base_handler
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label=" base_handler">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.base_handler-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Classes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.base_handler.BaseHandler" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-class"></code>&nbsp;BaseHandler
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.cloudwatch_handler" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-module"></code>&nbsp;cloudwatch_handler
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label=" cloudwatch_handler">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.cloudwatch_handler-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attributes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Attributes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.cloudwatch_handler.BUFFER_SIZE" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-attribute"></code>&nbsp;BUFFER_SIZE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.cloudwatch_handler.FLUSH_SECONDS" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-attribute"></code>&nbsp;FLUSH_SECONDS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.cloudwatch_handler.RETRY_NUM" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-attribute"></code>&nbsp;RETRY_NUM
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.cloudwatch_handler-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Classes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.cloudwatch_handler.CloudwatchHandler" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-class"></code>&nbsp;CloudwatchHandler
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.cloudwatch_handler-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.cloudwatch_handler.get_logger" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-function"></code>&nbsp;get_logger
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.cloudwatch_handler.remove_logger" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-function"></code>&nbsp;remove_logger
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.cloudwatch_handler-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modules
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.json_log" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-module"></code>&nbsp;json_log
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label=" json_log">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.json_log-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Classes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.json_log.Logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-class"></code>&nbsp;Logging
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.json_log-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.json_log.add_log_fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-function"></code>&nbsp;add_log_fields
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.json_log.create_logger" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-function"></code>&nbsp;create_logger
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.json_log.get_json_formatter" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-function"></code>&nbsp;get_json_formatter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.json_log.get_logger" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-function"></code>&nbsp;get_logger
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.json_log.log_fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-function"></code>&nbsp;log_fields
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.json_log.remove_handlers" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-function"></code>&nbsp;remove_handlers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.json_log.remove_log_fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-function"></code>&nbsp;remove_log_fields
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.json_log.remove_logger" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-function"></code>&nbsp;remove_logger
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.json_log.replace_logger_fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-function"></code>&nbsp;replace_logger_fields
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.json_log.set_record_factory" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-function"></code>&nbsp;set_record_factory
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.opensearch_handler" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-module"></code>&nbsp;opensearch_handler
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label=" opensearch_handler">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.opensearch_handler-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attributes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Attributes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.opensearch_handler.BUFFER_SIZE" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-attribute"></code>&nbsp;BUFFER_SIZE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.opensearch_handler.BULK_SIZE" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-attribute"></code>&nbsp;BULK_SIZE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.opensearch_handler.DEFAULT_INDEX_NAME" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-attribute"></code>&nbsp;DEFAULT_INDEX_NAME
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.opensearch_handler.DEFAULT_OPENSEARCH_HOST" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-attribute"></code>&nbsp;DEFAULT_OPENSEARCH_HOST
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.opensearch_handler.FLUSH_SECONDS" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-attribute"></code>&nbsp;FLUSH_SECONDS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.opensearch_handler.IGNORED_LOG_RECORD_FIELDS" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-attribute"></code>&nbsp;IGNORED_LOG_RECORD_FIELDS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.opensearch_handler.INDEX_DATE_FORMAT" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-attribute"></code>&nbsp;INDEX_DATE_FORMAT
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.opensearch_handler.RETRY_NUM" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-attribute"></code>&nbsp;RETRY_NUM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.opensearch_handler.logger" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-attribute"></code>&nbsp;logger
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.opensearch_handler-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Classes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.opensearch_handler.IndexRotation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-class"></code>&nbsp;IndexRotation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.opensearch_handler.OpensearchHandler" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-class"></code>&nbsp;OpensearchHandler
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.opensearch_handler-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.opensearch_handler.get_logger" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-function"></code>&nbsp;get_logger
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.opensearch_handler.remove_logger" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-function"></code>&nbsp;remove_logger
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.opensearch_handler.restore_logger" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-function"></code>&nbsp;restore_logger
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.opensearch_handler-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modules
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.opensearch_serializer" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-module"></code>&nbsp;opensearch_serializer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label=" opensearch_serializer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.opensearch_serializer-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Classes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.opensearch_serializer.OpenSearchSerializer" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-class"></code>&nbsp;OpenSearchSerializer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.stdout_handler" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-module"></code>&nbsp;stdout_handler
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label=" stdout_handler">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.stdout_handler-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Classes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.stdout_handler.StdoutHandler" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-class"></code>&nbsp;StdoutHandler
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.stdout_handler-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.stdout_handler.add_stdout_json_handler" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-function"></code>&nbsp;add_stdout_json_handler
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.stdout_handler.get_logger" class="md-nav__link">
+    <span class="md-ellipsis">
+      <code class="doc-symbol doc-symbol-toc doc-symbol-function"></code>&nbsp;get_logger
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opensearch_log.stdout_handler-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modules
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+  <h1>Reference</h1>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="opensearch_log" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-module"></code>          <span class="doc doc-object-name doc-module-name">opensearch_log</span>
+
+
+</h2>
+
+  <div class="doc doc-contents first">
+  
+      <p>A Python logging handler for efficient and reliable direct log transmission to OpenSearch.</p>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+<h3 id="opensearch_log-attributes">Attributes</h3>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="opensearch_log.urllib3_logger" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>          <span class="doc doc-object-name doc-attribute-name">opensearch_log.urllib3_logger</span>
+
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-module-attribute"><code>module-attribute</code></small>
+  </span>
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">urllib3_logger</span> <span class="o">=</span> <span class="n"><span title="logging.getLogger">getLogger</span></span><span class="p">(</span><span class="s1">&#39;opensearch&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+<h3 id="opensearch_log-classes">Classes</h3>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h4 id="opensearch_log.Logging" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>          <span class="doc doc-object-name doc-class-name">opensearch_log.Logging</span>
+
+
+</h4>
+
+
+  <div class="doc doc-contents ">
+
+  
+      <p>Context manager to add fields to log records.</p>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+<h5 id="opensearch_log.Logging-attributes">Attributes</h5>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h6 id="opensearch_log.Logging.added_fields" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>          <span class="doc doc-object-name doc-attribute-name">opensearch_log.Logging.added_fields</span>
+
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+</h6>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">added_fields</span><span class="p">:</span> <span class="n">list</span><span class="p">[</span><span class="n">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h6 id="opensearch_log.Logging.values" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>          <span class="doc doc-object-name doc-attribute-name">opensearch_log.Logging.values</span>
+
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+</h6>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">values</span> <span class="o">=</span> <span class="n"><a class="autorefs autorefs-internal" title="opensearch_log.json_log.Logging.values" href="#opensearch_log.json_log.Logging.values">values</a></span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+
+
+
+
+
+  </div>
+
+  </div>
+
+
+</div>
+<h3 id="opensearch_log-functions">Functions</h3>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h4 id="opensearch_log.add_log_fields" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>          <span class="doc doc-object-name doc-function-name">opensearch_log.add_log_fields</span>
+
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">add_log_fields</span><span class="p">(</span><span class="o">**</span><span class="n">values</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">list</span><span class="p">[</span><span class="n">str</span><span class="p">]</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Include fields to all log records.</p>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h4 id="opensearch_log.log_fields" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>          <span class="doc doc-object-name doc-function-name">opensearch_log.log_fields</span>
+
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">log_fields</span><span class="p">(</span>
+    <span class="n">func</span><span class="p">:</span> <span class="n"><span title="typing.Optional">Optional</span></span><span class="p">[</span><span class="n"><span title="typing.Any">Any</span></span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">values</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="typing.Any">Any</span></span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Decorate to include fields <code>values</code> to all log records.</p>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h4 id="opensearch_log.remove_log_fields" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>          <span class="doc doc-object-name doc-function-name">opensearch_log.remove_log_fields</span>
+
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">remove_log_fields</span><span class="p">(</span><span class="o">*</span><span class="n">fields</span><span class="p">:</span> <span class="n">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Remove logged fields.</p>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h4 id="opensearch_log.remove_logger" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>          <span class="doc doc-object-name doc-function-name">opensearch_log.remove_logger</span>
+
+
+</h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">remove_logger</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Flush and remove all handlers from the global logger.</p>
+
+  </div>
+
+</div>
+<h3 id="opensearch_log-modules">Modules</h3>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h4 id="opensearch_log.base_handler" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-module"></code>          <span class="doc doc-object-name doc-module-name">opensearch_log.base_handler</span>
+
+
+</h4>
+
+  <div class="doc doc-contents ">
+  
+      <p>Base logger for structured logging.</p>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+<h5 id="opensearch_log.base_handler-classes">Classes</h5>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h6 id="opensearch_log.base_handler.BaseHandler" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>          <span class="doc doc-object-name doc-class-name">opensearch_log.base_handler.BaseHandler</span>
+
+
+</h6>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><span title="logging.Handler">Handler</span></code></p>
+
+  
+      <p>Abstract base handler for structured logging.</p>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+<h7 id="opensearch_log.base_handler.BaseHandler-functions">Functions</h7>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h8 id="opensearch_log.base_handler.BaseHandler.emit" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>          <span class="doc doc-object-name doc-function-name">opensearch_log.base_handler.BaseHandler.emit</span>
+
+
+</h8>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">emit</span><span class="p">(</span><span class="n">record</span><span class="p">:</span> <span class="n"><span title="logging.LogRecord">LogRecord</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Emit a logging record in a processed format.</p>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h8 id="opensearch_log.base_handler.BaseHandler.send_message" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>          <span class="doc doc-object-name doc-function-name">opensearch_log.base_handler.BaseHandler.send_message</span>
+
+
+</h8>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">send_message</span><span class="p">(</span>
+    <span class="n">message</span><span class="p">:</span> <span class="n"><span title="typing.Optional">Optional</span></span><span class="p">[</span><span class="n">str</span><span class="p">],</span> <span class="n">record</span><span class="p">:</span> <span class="n"><span title="logging.LogRecord">LogRecord</span></span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Send the log message. This method should be implemented by subclasses.</p>
+
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h4 id="opensearch_log.cloudwatch_handler" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-module"></code>          <span class="doc doc-object-name doc-module-name">opensearch_log.cloudwatch_handler</span>
+
+
+</h4>
+
+  <div class="doc doc-contents ">
+  
+      <p>Structured logger that sends logs to AWS CloudWatch.</p>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+<h5 id="opensearch_log.cloudwatch_handler-attributes">Attributes</h5>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h6 id="opensearch_log.cloudwatch_handler.BUFFER_SIZE" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>          <span class="doc doc-object-name doc-attribute-name">opensearch_log.cloudwatch_handler.BUFFER_SIZE</span>
+
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-module-attribute"><code>module-attribute</code></small>
+  </span>
+
+</h6>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">BUFFER_SIZE</span> <span class="o">=</span> <span class="mi">100</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h6 id="opensearch_log.cloudwatch_handler.FLUSH_SECONDS" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>          <span class="doc doc-object-name doc-attribute-name">opensearch_log.cloudwatch_handler.FLUSH_SECONDS</span>
+
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-module-attribute"><code>module-attribute</code></small>
+  </span>
+
+</h6>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">FLUSH_SECONDS</span> <span class="o">=</span> <span class="mf">3.0</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h6 id="opensearch_log.cloudwatch_handler.RETRY_NUM" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>          <span class="doc doc-object-name doc-attribute-name">opensearch_log.cloudwatch_handler.RETRY_NUM</span>
+
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-module-attribute"><code>module-attribute</code></small>
+  </span>
+
+</h6>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">RETRY_NUM</span> <span class="o">=</span> <span class="mi">3</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+<h5 id="opensearch_log.cloudwatch_handler-classes">Classes</h5>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h6 id="opensearch_log.cloudwatch_handler.CloudwatchHandler" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>          <span class="doc doc-object-name doc-class-name">opensearch_log.cloudwatch_handler.CloudwatchHandler</span>
+
+
+</h6>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="opensearch_log.base_handler.BaseHandler" href="#opensearch_log.base_handler.BaseHandler">BaseHandler</a></code></p>
+
+  
+      <p>Handler that sends log records to AWS CloudWatch.</p>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+<h7 id="opensearch_log.cloudwatch_handler.CloudwatchHandler-attributes">Attributes</h7>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h8 id="opensearch_log.cloudwatch_handler.CloudwatchHandler.buffer_size" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>          <span class="doc doc-object-name doc-attribute-name">opensearch_log.cloudwatch_handler.CloudwatchHandler.buffer_size</span>
+
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+</h8>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">buffer_size</span> <span class="o">=</span> <span class="n"><a class="autorefs autorefs-internal" title="opensearch_log.cloudwatch_handler.BUFFER_SIZE" href="#opensearch_log.cloudwatch_handler.BUFFER_SIZE">BUFFER_SIZE</a></span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h8 id="opensearch_log.cloudwatch_handler.CloudwatchHandler.flush_seconds" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>          <span class="doc doc-object-name doc-attribute-name">opensearch_log.cloudwatch_handler.CloudwatchHandler.flush_seconds</span>
+
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+</h8>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">flush_seconds</span> <span class="o">=</span> <span class="n"><a class="autorefs autorefs-internal" title="opensearch_log.cloudwatch_handler.FLUSH_SECONDS" href="#opensearch_log.cloudwatch_handler.FLUSH_SECONDS">FLUSH_SECONDS</a></span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h8 id="opensearch_log.cloudwatch_handler.CloudwatchHandler.log_client" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>          <span class="doc doc-object-name doc-attribute-name">opensearch_log.cloudwatch_handler.CloudwatchHandler.log_client</span>
+
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h8>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">log_client</span><span class="p">:</span> <span class="n"><span title="mypy_boto3_logs.CloudWatchLogsClient">CloudWatchLogsClient</span></span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Get the boto3 client for CloudWatch logs.</p>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h8 id="opensearch_log.cloudwatch_handler.CloudwatchHandler.log_group" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>          <span class="doc doc-object-name doc-attribute-name">opensearch_log.cloudwatch_handler.CloudwatchHandler.log_group</span>
+
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+</h8>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">log_group</span> <span class="o">=</span> <span class="n"><a class="autorefs autorefs-internal" title="opensearch_log.cloudwatch_handler.CloudwatchHandler.log_group" href="#opensearch_log.cloudwatch_handler.CloudwatchHandler.log_group">log_group</a></span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h8 id="opensearch_log.cloudwatch_handler.CloudwatchHandler.log_stream" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>          <span class="doc doc-object-name doc-attribute-name">opensearch_log.cloudwatch_handler.CloudwatchHandler.log_stream</span>
+
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+</h8>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">log_stream</span> <span class="o">=</span> <span class="n"><a class="autorefs autorefs-internal" title="opensearch_log.cloudwatch_handler.CloudwatchHandler.log_stream" href="#opensearch_log.cloudwatch_handler.CloudwatchHandler.log_stream">log_stream</a></span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+
+<h7 id="opensearch_log.cloudwatch_handler.CloudwatchHandler-functions">Functions</h7>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h8 id="opensearch_log.cloudwatch_handler.CloudwatchHandler.close" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>          <span class="doc doc-object-name doc-function-name">opensearch_log.cloudwatch_handler.CloudwatchHandler.close</span>
+
+
+</h8>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">close</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Flush the buffer and release any outstanding resource.</p>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h8 id="opensearch_log.cloudwatch_handler.CloudwatchHandler.flush" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>          <span class="doc doc-object-name doc-function-name">opensearch_log.cloudwatch_handler.CloudwatchHandler.flush</span>
+
+
+</h8>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">flush</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Flush the buffer to CloudWatch.</p>
+<p>Could run from Timer's thread or from the main thread.
+So we should not use json_formatter's routines that access ThreadLocal variables.</p>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h8 id="opensearch_log.cloudwatch_handler.CloudwatchHandler.send_message" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>          <span class="doc doc-object-name doc-function-name">opensearch_log.cloudwatch_handler.CloudwatchHandler.send_message</span>
+
+
+</h8>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">send_message</span><span class="p">(</span>
+    <span class="n">message</span><span class="p">:</span> <span class="n"><span title="typing.Optional">Optional</span></span><span class="p">[</span><span class="n">str</span><span class="p">],</span> <span class="n">record</span><span class="p">:</span> <span class="n"><span title="logging.LogRecord">LogRecord</span></span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Buffer the log message and flush if necessary.</p>
+
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+
+</div>
+<h5 id="opensearch_log.cloudwatch_handler-functions">Functions</h5>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h6 id="opensearch_log.cloudwatch_handler.get_logger" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>          <span class="doc doc-object-name doc-function-name">opensearch_log.cloudwatch_handler.get_logger</span>
+
+
+</h6>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">get_logger</span><span class="p">(</span>
+    <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">,</span>
+    <span class="n">echo_stdout</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">log_group</span><span class="p">:</span> <span class="n">str</span><span class="p">,</span>
+    <span class="n">log_stream</span><span class="p">:</span> <span class="n">str</span><span class="p">,</span>
+    <span class="n">log_handler</span><span class="p">:</span> <span class="n"><span title="typing.Optional">Optional</span></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-internal" title="opensearch_log.base_handler.BaseHandler" href="#opensearch_log.base_handler.BaseHandler">BaseHandler</a></span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="logging.Logger">Logger</span></span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Create a logger that stream logs to CloudWatch.</p>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h6 id="opensearch_log.cloudwatch_handler.remove_logger" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>          <span class="doc doc-object-name doc-function-name">opensearch_log.cloudwatch_handler.remove_logger</span>
+
+
+</h6>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">remove_logger</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Flush and remove all handlers from the global logger.</p>
+
+  </div>
+
+</div>
+<h5 id="opensearch_log.cloudwatch_handler-modules">Modules</h5>
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h4 id="opensearch_log.json_log" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-module"></code>          <span class="doc doc-object-name doc-module-name">opensearch_log.json_log</span>
+
+
+</h4>
+
+  <div class="doc doc-contents ">
+  
+      <p>JSON logging.</p>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+<h5 id="opensearch_log.json_log-classes">Classes</h5>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h6 id="opensearch_log.json_log.Logging" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>          <span class="doc doc-object-name doc-class-name">opensearch_log.json_log.Logging</span>
+
+
+</h6>
+
+
+  <div class="doc doc-contents ">
+
+  
+      <p>Context manager to add fields to log records.</p>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+<h7 id="opensearch_log.json_log.Logging-attributes">Attributes</h7>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h8 id="opensearch_log.json_log.Logging.added_fields" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>          <span class="doc doc-object-name doc-attribute-name">opensearch_log.json_log.Logging.added_fields</span>
+
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+</h8>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">added_fields</span><span class="p">:</span> <span class="n">list</span><span class="p">[</span><span class="n">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h8 id="opensearch_log.json_log.Logging.values" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>          <span class="doc doc-object-name doc-attribute-name">opensearch_log.json_log.Logging.values</span>
+
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+</h8>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">values</span> <span class="o">=</span> <span class="n"><a class="autorefs autorefs-internal" title="opensearch_log.json_log.Logging.values" href="#opensearch_log.json_log.Logging.values">values</a></span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+
+
+
+
+
+  </div>
+
+  </div>
+
+
+</div>
+<h5 id="opensearch_log.json_log-functions">Functions</h5>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h6 id="opensearch_log.json_log.add_log_fields" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>          <span class="doc doc-object-name doc-function-name">opensearch_log.json_log.add_log_fields</span>
+
+
+</h6>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">add_log_fields</span><span class="p">(</span><span class="o">**</span><span class="n">values</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">list</span><span class="p">[</span><span class="n">str</span><span class="p">]</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Include fields to all log records.</p>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h6 id="opensearch_log.json_log.create_logger" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>          <span class="doc doc-object-name doc-function-name">opensearch_log.json_log.create_logger</span>
+
+
+</h6>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">create_logger</span><span class="p">(</span>
+    <span class="n">log_handler_instance</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="opensearch_log.base_handler.BaseHandler" href="#opensearch_log.base_handler.BaseHandler">BaseHandler</a></span><span class="p">,</span>
+    <span class="n">level</span><span class="p">:</span> <span class="n">int</span><span class="p">,</span>
+    <span class="n">clear_handlers</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="logging.Logger">Logger</span></span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Create a logger that stream logs in JSON format with additional fields.</p>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h6 id="opensearch_log.json_log.get_json_formatter" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>          <span class="doc doc-object-name doc-function-name">opensearch_log.json_log.get_json_formatter</span>
+
+
+</h6>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">get_json_formatter</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n"><span title="pythonjsonlogger.jsonlogger.JsonFormatter">JsonFormatter</span></span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Get a JSON formatter.</p>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h6 id="opensearch_log.json_log.get_logger" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>          <span class="doc doc-object-name doc-function-name">opensearch_log.json_log.get_logger</span>
+
+
+</h6>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">get_logger</span><span class="p">(</span>
+    <span class="n">application</span><span class="p">:</span> <span class="n"><span title="typing.Optional">Optional</span></span><span class="p">[</span><span class="n">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">log_handler</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="opensearch_log.base_handler.BaseHandler" href="#opensearch_log.base_handler.BaseHandler">BaseHandler</a></span><span class="p">,</span>
+    <span class="n">level</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span>
+    <span class="n">clear_handlers</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">values</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="logging.Logger">Logger</span></span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Get a JSON logger.</p>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h6 id="opensearch_log.json_log.log_fields" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>          <span class="doc doc-object-name doc-function-name">opensearch_log.json_log.log_fields</span>
+
+
+</h6>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">log_fields</span><span class="p">(</span>
+    <span class="n">func</span><span class="p">:</span> <span class="n"><span title="typing.Optional">Optional</span></span><span class="p">[</span><span class="n"><span title="typing.Any">Any</span></span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">values</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="typing.Any">Any</span></span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Decorate to include fields <code>values</code> to all log records.</p>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h6 id="opensearch_log.json_log.remove_handlers" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>          <span class="doc doc-object-name doc-function-name">opensearch_log.json_log.remove_handlers</span>
+
+
+</h6>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">remove_handlers</span><span class="p">(</span><span class="n">_logger</span><span class="p">:</span> <span class="n"><span title="logging.Logger">Logger</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Remove any default handlers.</p>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h6 id="opensearch_log.json_log.remove_log_fields" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>          <span class="doc doc-object-name doc-function-name">opensearch_log.json_log.remove_log_fields</span>
+
+
+</h6>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">remove_log_fields</span><span class="p">(</span><span class="o">*</span><span class="n">fields</span><span class="p">:</span> <span class="n">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Remove logged fields.</p>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h6 id="opensearch_log.json_log.remove_logger" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>          <span class="doc doc-object-name doc-function-name">opensearch_log.json_log.remove_logger</span>
+
+
+</h6>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">remove_logger</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Flush and remove all handlers from the global logger.</p>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h6 id="opensearch_log.json_log.replace_logger_fields" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>          <span class="doc doc-object-name doc-function-name">opensearch_log.json_log.replace_logger_fields</span>
+
+
+</h6>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">replace_logger_fields</span><span class="p">(</span>
+    <span class="n">fields_to_log</span><span class="p">:</span> <span class="n">dict</span><span class="p">[</span><span class="n">str</span><span class="p">,</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Update logger with new fields to log.</p>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h6 id="opensearch_log.json_log.set_record_factory" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>          <span class="doc doc-object-name doc-function-name">opensearch_log.json_log.set_record_factory</span>
+
+
+</h6>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">set_record_factory</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Set a log record factory.</p>
+
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h4 id="opensearch_log.opensearch_handler" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-module"></code>          <span class="doc doc-object-name doc-module-name">opensearch_log.opensearch_handler</span>
+
+
+</h4>
+
+  <div class="doc doc-contents ">
+  
+      <p>Structured logger that sends logs to AWS OpenSearch.</p>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+<h5 id="opensearch_log.opensearch_handler-attributes">Attributes</h5>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h6 id="opensearch_log.opensearch_handler.BUFFER_SIZE" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>          <span class="doc doc-object-name doc-attribute-name">opensearch_log.opensearch_handler.BUFFER_SIZE</span>
+
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-module-attribute"><code>module-attribute</code></small>
+  </span>
+
+</h6>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">BUFFER_SIZE</span> <span class="o">=</span> <span class="mi">200</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h6 id="opensearch_log.opensearch_handler.BULK_SIZE" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>          <span class="doc doc-object-name doc-attribute-name">opensearch_log.opensearch_handler.BULK_SIZE</span>
+
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-module-attribute"><code>module-attribute</code></small>
+  </span>
+
+</h6>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">BULK_SIZE</span> <span class="o">=</span> <span class="mi">15</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h6 id="opensearch_log.opensearch_handler.DEFAULT_INDEX_NAME" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>          <span class="doc doc-object-name doc-attribute-name">opensearch_log.opensearch_handler.DEFAULT_INDEX_NAME</span>
+
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-module-attribute"><code>module-attribute</code></small>
+  </span>
+
+</h6>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">DEFAULT_INDEX_NAME</span> <span class="o">=</span> <span class="s1">&#39;myindex&#39;</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h6 id="opensearch_log.opensearch_handler.DEFAULT_OPENSEARCH_HOST" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>          <span class="doc doc-object-name doc-attribute-name">opensearch_log.opensearch_handler.DEFAULT_OPENSEARCH_HOST</span>
+
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-module-attribute"><code>module-attribute</code></small>
+  </span>
+
+</h6>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">DEFAULT_OPENSEARCH_HOST</span> <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h6 id="opensearch_log.opensearch_handler.FLUSH_SECONDS" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>          <span class="doc doc-object-name doc-attribute-name">opensearch_log.opensearch_handler.FLUSH_SECONDS</span>
+
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-module-attribute"><code>module-attribute</code></small>
+  </span>
+
+</h6>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">FLUSH_SECONDS</span> <span class="o">=</span> <span class="mf">0.8</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h6 id="opensearch_log.opensearch_handler.IGNORED_LOG_RECORD_FIELDS" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>          <span class="doc doc-object-name doc-attribute-name">opensearch_log.opensearch_handler.IGNORED_LOG_RECORD_FIELDS</span>
+
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-module-attribute"><code>module-attribute</code></small>
+  </span>
+
+</h6>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">IGNORED_LOG_RECORD_FIELDS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;args&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;levelno&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;pathname&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;relativeCreated&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;msecs&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;exc_text&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h6 id="opensearch_log.opensearch_handler.INDEX_DATE_FORMAT" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>          <span class="doc doc-object-name doc-attribute-name">opensearch_log.opensearch_handler.INDEX_DATE_FORMAT</span>
+
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-module-attribute"><code>module-attribute</code></small>
+  </span>
+
+</h6>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">INDEX_DATE_FORMAT</span> <span class="o">=</span> <span class="s1">&#39;%Y.%m.</span><span class="si">%d</span><span class="s1">&#39;</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h6 id="opensearch_log.opensearch_handler.RETRY_NUM" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>          <span class="doc doc-object-name doc-attribute-name">opensearch_log.opensearch_handler.RETRY_NUM</span>
+
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-module-attribute"><code>module-attribute</code></small>
+  </span>
+
+</h6>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">RETRY_NUM</span> <span class="o">=</span> <span class="mi">3</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h6 id="opensearch_log.opensearch_handler.logger" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>          <span class="doc doc-object-name doc-attribute-name">opensearch_log.opensearch_handler.logger</span>
+
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-module-attribute"><code>module-attribute</code></small>
+  </span>
+
+</h6>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">logger</span> <span class="o">=</span> <span class="n"><a class="autorefs autorefs-internal" title="opensearch_log.opensearch_handler.get_logger" href="#opensearch_log.opensearch_handler.get_logger">get_logger</a></span><span class="p">(</span><span class="n">echo_stdout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+<h5 id="opensearch_log.opensearch_handler-classes">Classes</h5>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h6 id="opensearch_log.opensearch_handler.IndexRotation" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>          <span class="doc doc-object-name doc-class-name">opensearch_log.opensearch_handler.IndexRotation</span>
+
+
+</h6>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><span title="enum.Enum">Enum</span></code></p>
+
+  
+      <p>Index rotation frequency.</p>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+<h7 id="opensearch_log.opensearch_handler.IndexRotation-attributes">Attributes</h7>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h8 id="opensearch_log.opensearch_handler.IndexRotation.DAILY" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>          <span class="doc doc-object-name doc-attribute-name">opensearch_log.opensearch_handler.IndexRotation.DAILY</span>
+
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+</h8>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">DAILY</span> <span class="o">=</span> <span class="mi">0</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h8 id="opensearch_log.opensearch_handler.IndexRotation.MONTHLY" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>          <span class="doc doc-object-name doc-attribute-name">opensearch_log.opensearch_handler.IndexRotation.MONTHLY</span>
+
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+</h8>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">MONTHLY</span> <span class="o">=</span> <span class="mi">10</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+
+
+
+
+
+  </div>
+
+  </div>
+
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h6 id="opensearch_log.opensearch_handler.OpensearchHandler" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>          <span class="doc doc-object-name doc-class-name">opensearch_log.opensearch_handler.OpensearchHandler</span>
+
+
+</h6>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="opensearch_log.base_handler.BaseHandler" href="#opensearch_log.base_handler.BaseHandler">BaseHandler</a></code></p>
+
+  
+      <p>Handler to send log records to AWS OpenSearch.</p>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+<h7 id="opensearch_log.opensearch_handler.OpensearchHandler-attributes">Attributes</h7>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h8 id="opensearch_log.opensearch_handler.OpensearchHandler.DAILY" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>          <span class="doc doc-object-name doc-attribute-name">opensearch_log.opensearch_handler.OpensearchHandler.DAILY</span>
+
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+</h8>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">DAILY</span> <span class="o">=</span> <span class="n"><a class="autorefs autorefs-internal" title="opensearch_log.opensearch_handler.IndexRotation.DAILY" href="#opensearch_log.opensearch_handler.IndexRotation.DAILY">DAILY</a></span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h8 id="opensearch_log.opensearch_handler.OpensearchHandler.MONTHLY" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>          <span class="doc doc-object-name doc-attribute-name">opensearch_log.opensearch_handler.OpensearchHandler.MONTHLY</span>
+
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+</h8>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">MONTHLY</span> <span class="o">=</span> <span class="n"><a class="autorefs autorefs-internal" title="opensearch_log.opensearch_handler.IndexRotation.MONTHLY" href="#opensearch_log.opensearch_handler.IndexRotation.MONTHLY">MONTHLY</a></span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h8 id="opensearch_log.opensearch_handler.OpensearchHandler.buffer_size" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>          <span class="doc doc-object-name doc-attribute-name">opensearch_log.opensearch_handler.OpensearchHandler.buffer_size</span>
+
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+</h8>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">buffer_size</span> <span class="o">=</span> <span class="n"><a class="autorefs autorefs-internal" title="opensearch_log.opensearch_handler.OpensearchHandler.buffer_size" href="#opensearch_log.opensearch_handler.OpensearchHandler.buffer_size">buffer_size</a></span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h8 id="opensearch_log.opensearch_handler.OpensearchHandler.flush_seconds" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>          <span class="doc doc-object-name doc-attribute-name">opensearch_log.opensearch_handler.OpensearchHandler.flush_seconds</span>
+
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+</h8>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">flush_seconds</span> <span class="o">=</span> <span class="n"><a class="autorefs autorefs-internal" title="opensearch_log.opensearch_handler.OpensearchHandler.flush_seconds" href="#opensearch_log.opensearch_handler.OpensearchHandler.flush_seconds">flush_seconds</a></span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h8 id="opensearch_log.opensearch_handler.OpensearchHandler.index_name" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>          <span class="doc doc-object-name doc-attribute-name">opensearch_log.opensearch_handler.OpensearchHandler.index_name</span>
+
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+</h8>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">index_name</span> <span class="o">=</span> <span class="n"><a class="autorefs autorefs-internal" title="opensearch_log.opensearch_handler.OpensearchHandler.index_name" href="#opensearch_log.opensearch_handler.OpensearchHandler.index_name">index_name</a></span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h8 id="opensearch_log.opensearch_handler.OpensearchHandler.index_rotate" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>          <span class="doc doc-object-name doc-attribute-name">opensearch_log.opensearch_handler.OpensearchHandler.index_rotate</span>
+
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+</h8>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">index_rotate</span> <span class="o">=</span> <span class="n"><a class="autorefs autorefs-internal" title="opensearch_log.opensearch_handler.IndexRotation" href="#opensearch_log.opensearch_handler.IndexRotation">IndexRotation</a></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-internal" title="opensearch_log.opensearch_handler.OpensearchHandler.index_rotate" href="#opensearch_log.opensearch_handler.OpensearchHandler.index_rotate">index_rotate</a></span><span class="p">]</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h8 id="opensearch_log.opensearch_handler.OpensearchHandler.opensearch_host" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>          <span class="doc doc-object-name doc-attribute-name">opensearch_log.opensearch_handler.OpensearchHandler.opensearch_host</span>
+
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+</h8>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">opensearch_host</span> <span class="o">=</span> <span class="n"><a class="autorefs autorefs-internal" title="opensearch_log.opensearch_handler.OpensearchHandler.opensearch_host" href="#opensearch_log.opensearch_handler.OpensearchHandler.opensearch_host">opensearch_host</a></span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+
+<h7 id="opensearch_log.opensearch_handler.OpensearchHandler-functions">Functions</h7>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h8 id="opensearch_log.opensearch_handler.OpensearchHandler.close" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>          <span class="doc doc-object-name doc-function-name">opensearch_log.opensearch_handler.OpensearchHandler.close</span>
+
+
+</h8>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">close</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Flush the buffer on close.</p>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h8 id="opensearch_log.opensearch_handler.OpensearchHandler.emit" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>          <span class="doc doc-object-name doc-function-name">opensearch_log.opensearch_handler.OpensearchHandler.emit</span>
+
+
+</h8>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">emit</span><span class="p">(</span><span class="n">record</span><span class="p">:</span> <span class="n"><span title="logging.LogRecord">LogRecord</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Emit a logging record in a processed format.</p>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h8 id="opensearch_log.opensearch_handler.OpensearchHandler.flush" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>          <span class="doc doc-object-name doc-function-name">opensearch_log.opensearch_handler.OpensearchHandler.flush</span>
+
+
+</h8>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">flush</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Flush the buffer.</p>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h8 id="opensearch_log.opensearch_handler.OpensearchHandler.is_connected" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>          <span class="doc doc-object-name doc-function-name">opensearch_log.opensearch_handler.OpensearchHandler.is_connected</span>
+
+
+</h8>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">is_connected</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">bool</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Return True if we can ping the OpenSearch.</p>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h8 id="opensearch_log.opensearch_handler.OpensearchHandler.send_message" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>          <span class="doc doc-object-name doc-function-name">opensearch_log.opensearch_handler.OpensearchHandler.send_message</span>
+
+
+</h8>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">send_message</span><span class="p">(</span>
+    <span class="n">message</span><span class="p">:</span> <span class="n"><span title="typing.Optional">Optional</span></span><span class="p">[</span><span class="n">str</span><span class="p">],</span> <span class="n">record</span><span class="p">:</span> <span class="n"><span title="logging.LogRecord">LogRecord</span></span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Send the log message to OpenSearch.</p>
+
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+
+</div>
+<h5 id="opensearch_log.opensearch_handler-functions">Functions</h5>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h6 id="opensearch_log.opensearch_handler.get_logger" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>          <span class="doc doc-object-name doc-function-name">opensearch_log.opensearch_handler.get_logger</span>
+
+
+</h6>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">get_logger</span><span class="p">(</span>
+    <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">,</span>
+    <span class="n">opensearch_host</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="n">DEFAULT_OPENSEARCH_HOST</span><span class="p">,</span>
+    <span class="n">index_name</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="n">DEFAULT_INDEX_NAME</span><span class="p">,</span>
+    <span class="n">index_rotate</span><span class="p">:</span> <span class="n"><span title="typing.Union">Union</span></span><span class="p">[</span>
+        <span class="n"><a class="autorefs autorefs-internal" title="opensearch_log.opensearch_handler.IndexRotation" href="#opensearch_log.opensearch_handler.IndexRotation">IndexRotation</a></span><span class="p">,</span> <span class="n">str</span>
+    <span class="p">]</span> <span class="o">=</span> <span class="n">IndexRotation</span><span class="o">.</span><span class="n">DAILY</span><span class="p">,</span>
+    <span class="n">echo_stdout</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">buffer_size</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="n">BUFFER_SIZE</span><span class="p">,</span>
+    <span class="n">flush_seconds</span><span class="p">:</span> <span class="n">float</span> <span class="o">=</span> <span class="n">FLUSH_SECONDS</span><span class="p">,</span>
+    <span class="n">log_handler</span><span class="p">:</span> <span class="n"><span title="typing.Optional">Optional</span></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-internal" title="opensearch_log.base_handler.BaseHandler" href="#opensearch_log.base_handler.BaseHandler">BaseHandler</a></span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="logging.Logger">Logger</span></span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Create a logger that stream logs to OpenSearch.</p>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h6 id="opensearch_log.opensearch_handler.remove_logger" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>          <span class="doc doc-object-name doc-function-name">opensearch_log.opensearch_handler.remove_logger</span>
+
+
+</h6>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">remove_logger</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Flush and remove all handlers from the global logger.</p>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h6 id="opensearch_log.opensearch_handler.restore_logger" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>          <span class="doc doc-object-name doc-function-name">opensearch_log.opensearch_handler.restore_logger</span>
+
+
+</h6>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">restore_logger</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Flush and remove all handlers.</p>
+
+  </div>
+
+</div>
+<h5 id="opensearch_log.opensearch_handler-modules">Modules</h5>
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h4 id="opensearch_log.opensearch_serializer" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-module"></code>          <span class="doc doc-object-name doc-module-name">opensearch_log.opensearch_serializer</span>
+
+
+</h4>
+
+  <div class="doc doc-contents ">
+  
+      <p>JSON serializer.</p>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+<h5 id="opensearch_log.opensearch_serializer-classes">Classes</h5>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h6 id="opensearch_log.opensearch_serializer.OpenSearchSerializer" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>          <span class="doc doc-object-name doc-class-name">opensearch_log.opensearch_serializer.OpenSearchSerializer</span>
+
+
+</h6>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><span title="opensearchpy.serializer.JSONSerializer">JSONSerializer</span></code></p>
+
+  
+      <p>Override OpenSearch JSON serializer.</p>
+<p>Ignore serialization errors.</p>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+<h7 id="opensearch_log.opensearch_serializer.OpenSearchSerializer-functions">Functions</h7>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h8 id="opensearch_log.opensearch_serializer.OpenSearchSerializer.default" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>          <span class="doc doc-object-name doc-function-name">opensearch_log.opensearch_serializer.OpenSearchSerializer.default</span>
+
+
+</h8>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">default</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="typing.Any">Any</span></span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Catch all serialization fails and fall to <strong>str</strong>.</p>
+
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h4 id="opensearch_log.stdout_handler" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-module"></code>          <span class="doc doc-object-name doc-module-name">opensearch_log.stdout_handler</span>
+
+
+</h4>
+
+  <div class="doc doc-contents ">
+  
+      <p>JSON logging to stdout.</p>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+<h5 id="opensearch_log.stdout_handler-classes">Classes</h5>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h6 id="opensearch_log.stdout_handler.StdoutHandler" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>          <span class="doc doc-object-name doc-class-name">opensearch_log.stdout_handler.StdoutHandler</span>
+
+
+</h6>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="opensearch_log.base_handler.BaseHandler" href="#opensearch_log.base_handler.BaseHandler">BaseHandler</a></code></p>
+
+  
+      <p>Handler to send json log to stdout.</p>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+<h7 id="opensearch_log.stdout_handler.StdoutHandler-functions">Functions</h7>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h8 id="opensearch_log.stdout_handler.StdoutHandler.send_message" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>          <span class="doc doc-object-name doc-function-name">opensearch_log.stdout_handler.StdoutHandler.send_message</span>
+
+
+</h8>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">send_message</span><span class="p">(</span>
+    <span class="n">message</span><span class="p">:</span> <span class="n"><span title="typing.Optional">Optional</span></span><span class="p">[</span><span class="n">str</span><span class="p">],</span> <span class="n">record</span><span class="p">:</span> <span class="n"><span title="logging.LogRecord">LogRecord</span></span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Send the log message to stdout.</p>
+
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+
+</div>
+<h5 id="opensearch_log.stdout_handler-functions">Functions</h5>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h6 id="opensearch_log.stdout_handler.add_stdout_json_handler" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>          <span class="doc doc-object-name doc-function-name">opensearch_log.stdout_handler.add_stdout_json_handler</span>
+
+
+</h6>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">add_stdout_json_handler</span><span class="p">(</span><span class="n">logger</span><span class="p">:</span> <span class="n"><span title="logging.Logger">Logger</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Add a stdout handler to the logger.</p>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h6 id="opensearch_log.stdout_handler.get_logger" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>          <span class="doc doc-object-name doc-function-name">opensearch_log.stdout_handler.get_logger</span>
+
+
+</h6>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">get_logger</span><span class="p">(</span>
+    <span class="n">application</span><span class="p">:</span> <span class="n"><span title="typing.Optional">Optional</span></span><span class="p">[</span><span class="n">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">branch</span><span class="p">:</span> <span class="n"><span title="typing.Optional">Optional</span></span><span class="p">[</span><span class="n">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">level</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span>
+    <span class="n">clear_handlers</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">values</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="logging.Logger">Logger</span></span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Get a logger to send JSON logs to stdout.</p>
+
+  </div>
+
+</div>
+<h5 id="opensearch_log.stdout_handler-modules">Modules</h5>
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["toc.integrate", "navigation.tracking", "content.code.copy"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+    
+  </body>
+</html>
